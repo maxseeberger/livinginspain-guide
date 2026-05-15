@@ -5,13 +5,14 @@ interface Source {
 
 interface OfficialSourcesProps {
   sources: Source[];
+  label?: string;
 }
 
-export default function OfficialSources({ sources }: OfficialSourcesProps) {
+export default function OfficialSources({ sources, label = 'Official sources' }: OfficialSourcesProps) {
   if (!sources?.length) return null;
   return (
     <div className="not-prose bg-sand border border-border rounded-2xl px-6 py-5 my-8">
-      <p className="font-mono text-[0.625rem] uppercase tracking-[0.2em] text-text-md mb-4">Official sources</p>
+      <p className="font-mono text-[0.625rem] uppercase tracking-[0.2em] text-text-md mb-4">{label}</p>
       <ul className="space-y-2.5">
         {sources.map((s, i) => (
           <li key={i}>

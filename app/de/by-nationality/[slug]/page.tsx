@@ -11,7 +11,11 @@ import RelatedGuides from '@/components/RelatedGuides';
 import OfficialSources from '@/components/OfficialSources';
 import type { Metadata } from 'next';
 
-const components = { Callout, SummaryBox, DataTable, CTABox, RelatedGuides, OfficialSources };
+const SummaryBoxDe = (props: { children: React.ReactNode }) => <SummaryBox {...props} label="Kurzfassung" />;
+const CTABoxDe = (props: { title?: string; body?: string; buttonText?: string; buttonHref?: string }) => <CTABox {...props} locale="de" />;
+const RelatedGuidesDe = (props: { guides: { title: string; href: string }[] }) => <RelatedGuides {...props} label="Verwandte Ratgeber" />;
+const OfficialSourcesDe = (props: { sources: { label: string; href: string }[] }) => <OfficialSources {...props} label="Offizielle Quellen" />;
+const components = { Callout, SummaryBox: SummaryBoxDe, DataTable, CTABox: CTABoxDe, RelatedGuides: RelatedGuidesDe, OfficialSources: OfficialSourcesDe };
 
 export async function generateStaticParams() {
   return getAllArticles('by-nationality', 'de').map((a) => ({ slug: a.slug }));
@@ -35,7 +39,7 @@ export default async function DeByNationalityArticlePage({ params }: { params: P
       lastUpdated={article.lastUpdated} readingTime={article.readingTime} locale="de"
       breadcrumb={[{ label: 'Nach Nationalität', href: '/de/by-nationality' }]}>
       <MDXRemote source={article.content} components={components} />
-      <SimplifyButton simple={article.simplifySimple} bullet={article.simplifyBullet} example={article.simplifyExample} />
+      <SimplifyButton simple={article.simplifySimple} bullet={article.simplifyBullet} example={article.simplifyExample} locale="de" />
     </ArticleLayout>
   );
 }

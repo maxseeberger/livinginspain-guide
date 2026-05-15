@@ -8,15 +8,16 @@ interface SimplifyButtonProps {
   simple: string;
   bullet: string;
   example: string;
+  locale?: 'en' | 'de';
 }
 
-const modes: { key: Mode; label: string }[] = [
-  { key: 'simple',  label: 'Explain simply' },
-  { key: 'bullet',  label: 'Key points' },
-  { key: 'example', label: 'Real example' },
-];
-
-export default function SimplifyButton({ simple, bullet, example }: SimplifyButtonProps) {
+export default function SimplifyButton({ simple, bullet, example, locale = 'en' }: SimplifyButtonProps) {
+  const de = locale === 'de';
+  const modes: { key: Mode; label: string }[] = [
+    { key: 'simple',  label: de ? 'Einfach erklärt' : 'Explain simply' },
+    { key: 'bullet',  label: de ? 'Wichtigste Punkte' : 'Key points' },
+    { key: 'example', label: de ? 'Praxisbeispiel' : 'Real example' },
+  ];
   const [active, setActive] = useState<Mode | null>(null);
   const content: Record<Mode, string> = { simple, bullet, example };
 
@@ -24,8 +25,8 @@ export default function SimplifyButton({ simple, bullet, example }: SimplifyButt
     <div className="not-prose border border-border rounded-2xl overflow-hidden my-10">
       <div className="bg-navy-dk px-6 py-5 flex flex-wrap items-center justify-between gap-4">
         <div>
-          <p className="label-terra mb-0.5">Reading tools</p>
-          <p className="font-display font-bold text-white text-lg">Simplify this article</p>
+          <p className="label-terra mb-0.5">{de ? 'Lesehilfen' : 'Reading tools'}</p>
+          <p className="font-display font-bold text-white text-lg">{de ? 'Artikel vereinfachen' : 'Simplify this article'}</p>
         </div>
         <div className="flex gap-2 flex-wrap">
           {modes.map((m) => (

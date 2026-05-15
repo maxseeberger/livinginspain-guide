@@ -2,6 +2,7 @@ import { notFound } from 'next/navigation';
 import { MDXRemote } from 'next-mdx-remote/rsc';
 import { getArticle, getAllArticles } from '@/lib/mdx';
 import ArticleLayout from '@/components/ArticleLayout';
+import SimplifyButton from '@/components/SimplifyButton';
 import Callout from '@/components/Callout';
 import SummaryBox from '@/components/SummaryBox';
 import DataTable from '@/components/DataTable';
@@ -34,6 +35,7 @@ export default async function ToolsPage({ params }: { params: Promise<{ slug: st
       lastUpdated={article.lastUpdated} readingTime={article.readingTime}
       breadcrumb={[{ label: 'Tools', href: '/tools' }]}>
       <MDXRemote source={article.content} components={components} />
+      <SimplifyButton simple={article.simplifySimple} bullet={article.simplifyBullet} example={article.simplifyExample} />
     </ArticleLayout>
   );
 }

@@ -5,13 +5,14 @@ interface Guide {
 
 interface RelatedGuidesProps {
   guides: Guide[];
+  label?: string;
 }
 
-export default function RelatedGuides({ guides }: RelatedGuidesProps) {
+export default function RelatedGuides({ guides, label = 'Related guides' }: RelatedGuidesProps) {
   if (!guides?.length) return null;
   return (
     <div className="not-prose border border-border rounded-2xl px-6 py-5 my-8 bg-white">
-      <p className="font-mono text-[0.625rem] uppercase tracking-[0.2em] text-text-md mb-4">Related guides</p>
+      <p className="font-mono text-[0.625rem] uppercase tracking-[0.2em] text-text-md mb-4">{label}</p>
       <ul className="space-y-2">
         {guides.map((g, i) => (
           <li key={i}>

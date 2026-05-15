@@ -78,8 +78,8 @@ export default function HomepageHero({ locale = 'en' }: HomepageHeroProps) {
 
               <p className="text-white/70 text-lg leading-relaxed mb-8 max-w-lg">
                 {de
-                  ? '61 praktische Ratgeber zu spanischen Steuern, NIE-Anträgen, Erbschaft, Ferienvermietung und Alltag — in verständlichem Deutsch.'
-                  : '61 practical guides on Spanish taxes, NIE applications, inheritance, tourist rentals, and daily life — in plain English.'}
+                  ? '59 praktische Ratgeber zu spanischen Steuern, NIE-Anträgen, Erbschaft, Ferienvermietung und Alltag — in verständlichem Deutsch.'
+                  : '59 practical guides on Spanish taxes, NIE applications, inheritance, tourist rentals, and daily life — in plain English.'}
               </p>
 
               <div className="flex flex-wrap gap-3">
@@ -89,16 +89,16 @@ export default function HomepageHero({ locale = 'en' }: HomepageHeroProps) {
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
                   </svg>
                 </Link>
-                <Link href={`${p}/nie/how-to-apply`} className="btn-outline-white">
-                  {de ? 'NIE beantragen' : 'Get your NIE'}
+                <Link href={`${p}/inheritance/balearics-100-exemption`} className="btn-outline-white">
+                  {de ? '100% Erbschaftsbefreiung' : 'Inheritance exemption'}
                 </Link>
               </div>
 
               {/* Stats */}
               <div className="flex gap-8 mt-12 pt-8 border-t border-white/10">
                 {[
-                  { n: '61', unit: de ? 'Ratgeber' : 'guides' },
-                  { n: '8', unit: de ? 'Themen' : 'topics' },
+                  { n: '59', unit: de ? 'Ratgeber' : 'guides' },
+                  { n: '9', unit: de ? 'Themen' : 'topics' },
                   { n: '2026', unit: de ? 'aktualisiert' : 'updated' },
                 ].map(({ n, unit }) => (
                   <div key={unit}>

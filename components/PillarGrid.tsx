@@ -13,6 +13,7 @@ function getPillars(locale: Locale) {
       { title: 'Alltag', description: 'Strom, Gesundheitsversorgung, KFZ-Versicherung, Führerschein.', href: `${p}/daily-life`, count: 7, accent: 'green' },
       { title: 'Nach Nationalität', description: 'Ratgeber für britische, deutsche, amerikanische, Schweizer Eigentümer.', href: `${p}/by-nationality`, count: 5, accent: 'navy' },
       { title: 'Mallorca', description: 'Wohngebiete, IBI nach Gemeinde, Rabattprogramme für Bewohner.', href: `${p}/mallorca`, count: 5, accent: 'terra' },
+      { title: 'Werkzeuge & Ressourcen', description: 'Steuerkalender, Glossar, Modelo 210 Rechner.', href: `${p}/tools`, count: 3, accent: 'green' },
     ];
   }
   return [
@@ -24,6 +25,7 @@ function getPillars(locale: Locale) {
     { title: 'Daily Life', description: 'Electricity, healthcare, car insurance, driving licences.', href: `${p}/daily-life`, count: 7, accent: 'green' },
     { title: 'By Nationality', description: 'Guides for British, German, American, Swiss owners.', href: `${p}/by-nationality`, count: 5, accent: 'navy' },
     { title: 'Mallorca', description: 'Living areas, IBI by municipality, resident discounts.', href: `${p}/mallorca`, count: 5, accent: 'terra' },
+    { title: 'Tools & Resources', description: 'Tax calendar, glossary, Modelo 210 calculator.', href: `${p}/tools`, count: 3, accent: 'green' },
   ];
 }
 
@@ -49,7 +51,7 @@ export default function PillarGrid({ locale = 'en' }: PillarGridProps) {
         {/* Header */}
         <div className="flex items-end justify-between gap-4 mb-10">
           <div>
-            <p className="label mb-3">{de ? '61 Ratgeber' : '61 guides'}</p>
+            <p className="label mb-3">{de ? '59 Ratgeber' : '59 guides'}</p>
             <h2 className="font-display font-bold text-ink text-4xl sm:text-5xl tracking-tight leading-[1.0]">
               {de ? 'Nach Thema durchsuchen.' : 'Browse by topic.'}
             </h2>
