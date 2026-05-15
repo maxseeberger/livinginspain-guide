@@ -48,7 +48,7 @@ export default function InheritanceArticlePage({ params }: Props) {
       breadcrumb={[{ label: 'Inheritance', href: '/inheritance' }]}
     >
       <MDXRemote source={article.content} components={components} />
-      <SimplifyButton articleContent={article.content} />
+      <SimplifyButton simple={article.simplifySimple} bullet={article.simplifyBullet} example={article.simplifyExample} />
     </ArticleLayout>
   );
 }

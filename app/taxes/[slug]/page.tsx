@@ -48,7 +48,7 @@ export default function TaxesArticlePage({ params }: Props) {
       breadcrumb={[{ label: 'Taxes & Finance', href: '/taxes' }]}
     >
       <MDXRemote source={article.content} components={components} />
-      <SimplifyButton articleContent={article.content} />
+      <SimplifyButton simple={article.simplifySimple} bullet={article.simplifyBullet} example={article.simplifyExample} />
     </ArticleLayout>
   );
 }

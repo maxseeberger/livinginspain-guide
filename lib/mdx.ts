@@ -11,6 +11,9 @@ export interface ArticleMeta {
   slug: string;
   lastUpdated: string;
   readingTime: number;
+  simplifySimple: string;
+  simplifyBullet: string;
+  simplifyExample: string;
 }
 
 export interface Article extends ArticleMeta {

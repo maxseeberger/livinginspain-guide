@@ -48,7 +48,7 @@ export default function DailyLifeArticlePage({ params }: Props) {
       breadcrumb={[{ label: 'Daily Life', href: '/daily-life' }]}
     >
       <MDXRemote source={article.content} components={components} />
-      <SimplifyButton articleContent={article.content} />
+      <SimplifyButton simple={article.simplifySimple} bullet={article.simplifyBullet} example={article.simplifyExample} />
     </ArticleLayout>
   );
 }

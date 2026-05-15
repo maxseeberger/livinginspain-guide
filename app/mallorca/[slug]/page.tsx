@@ -48,7 +48,7 @@ export default function MallorcaArticlePage({ params }: Props) {
       breadcrumb={[{ label: 'Mallorca', href: '/mallorca' }]}
     >
       <MDXRemote source={article.content} components={components} />
-      <SimplifyButton articleContent={article.content} />
+      <SimplifyButton simple={article.simplifySimple} bullet={article.simplifyBullet} example={article.simplifyExample} />
     </ArticleLayout>
   );
 }

@@ -48,7 +48,7 @@ export default function BankingArticlePage({ params }: Props) {
       breadcrumb={[{ label: 'Banking & Money', href: '/banking' }]}
     >
       <MDXRemote source={article.content} components={components} />
-      <SimplifyButton articleContent={article.content} />
+      <SimplifyButton simple={article.simplifySimple} bullet={article.simplifyBullet} example={article.simplifyExample} />
     </ArticleLayout>
   );
 }

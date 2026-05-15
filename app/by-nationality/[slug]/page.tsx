@@ -48,7 +48,7 @@ export default function ByNationalityArticlePage({ params }: Props) {
       breadcrumb={[{ label: 'By Nationality', href: '/by-nationality' }]}
     >
       <MDXRemote source={article.content} components={components} />
-      <SimplifyButton articleContent={article.content} />
+      <SimplifyButton simple={article.simplifySimple} bullet={article.simplifyBullet} example={article.simplifyExample} />
     </ArticleLayout>
   );
 }
