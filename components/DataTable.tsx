@@ -5,8 +5,9 @@ interface DataTableProps {
 }
 
 export default function DataTable({ headers, rows, caption }: DataTableProps) {
+  if (!headers || !rows) return null;
   return (
-    <div className="my-8 overflow-x-auto rounded-lg border border-border shadow-sm">
+    <div className="my-8 overflow-x-auto rounded-lg border border-border shadow-sm not-prose">
       <table className="w-full text-sm">
         {caption && <caption className="text-text-lt text-xs mb-2 text-left px-1">{caption}</caption>}
         <thead>
@@ -20,9 +21,9 @@ export default function DataTable({ headers, rows, caption }: DataTableProps) {
         </thead>
         <tbody>
           {rows.map((row, ri) => (
-            <tr key={ri} className={ri % 2 === 1 ? 'bg-cream' : 'bg-white'}>
-              {row.map((cell, ci) => (
-                <td key={ci} className="px-4 py-3 text-text border-t border-border">
+            <tr key={ri} className={ri % 2 === 1 ? 'bg-sand' : 'bg-white'}>
+              {(row ?? []).map((cell, ci) => (
+                <td key={ci} className="px-4 py-3 text-text-md border-t border-border">
                   {cell}
                 </td>
               ))}

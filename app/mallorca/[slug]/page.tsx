@@ -13,40 +13,27 @@ import type { Metadata } from 'next';
 
 const components = { Callout, SummaryBox, DataTable, CTABox, RelatedGuides, OfficialSources };
 
-interface Props {
-  params: { slug: string };
-}
-
 export async function generateStaticParams() {
   return getAllArticles('mallorca').map((a) => ({ slug: a.slug }));
 }
 
-export async function generateMetadata({ params }: Props): Promise<Metadata> {
+export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }): Promise<Metadata> {
   try {
-    const article = getArticle('mallorca', params.slug);
+    const { slug } = await params;
+    const article = getArticle('mallorca', slug);
     return { title: article.title, description: article.description };
-  } catch {
-    return {};
-  }
+  } catch { return {}; }
 }
 
-export default function MallorcaArticlePage({ params }: Props) {
+export default async function MallorcaArticlePage({ params }: { params: Promise<{ slug: string }> }) {
+  const { slug } = await params;
   let article;
-  try {
-    article = getArticle('mallorca', params.slug);
-  } catch {
-    notFound();
-  }
+  try { article = getArticle('mallorca', slug); } catch { notFound(); }
 
   return (
-    <ArticleLayout
-      title={article.title}
-      description={article.description}
-      category={article.category}
-      lastUpdated={article.lastUpdated}
-      readingTime={article.readingTime}
-      breadcrumb={[{ label: 'Mallorca', href: '/mallorca' }]}
-    >
+    <ArticleLayout title={article.title} description={article.description} category={article.category}
+      lastUpdated={article.lastUpdated} readingTime={article.readingTime}
+      breadcrumb={[{ label: 'Mallorca', href: '/mallorca' }]}>
       <MDXRemote source={article.content} components={components} />
       <SimplifyButton simple={article.simplifySimple} bullet={article.simplifyBullet} example={article.simplifyExample} />
     </ArticleLayout>

@@ -8,8 +8,9 @@ interface RelatedGuidesProps {
 }
 
 export default function RelatedGuides({ guides }: RelatedGuidesProps) {
+  if (!guides?.length) return null;
   return (
-    <div className="border border-border rounded-lg px-6 py-5 my-8 bg-white">
+    <div className="not-prose border border-border rounded-xl px-6 py-5 my-8 bg-white">
       <h3 className="font-serif text-base text-navy font-semibold mb-3">Related guides</h3>
       <ul className="space-y-2">
         {guides.map((g, i) => (

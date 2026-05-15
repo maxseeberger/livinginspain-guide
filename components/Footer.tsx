@@ -41,10 +41,12 @@ const columns = [
     ],
   },
   {
-    heading: 'Tools',
+    heading: 'Tools & More',
     links: [
       { label: 'Tax calendar', href: '/tools/tax-calendar' },
       { label: 'Glossary', href: '/tools/glossary' },
+      { label: 'Mallorca guides', href: '/mallorca/living-areas' },
+      { label: 'By nationality', href: '/by-nationality/british-owners' },
       { label: 'Get expert help', href: '/professionals/global-consulting-mallorca' },
     ],
   },
@@ -52,20 +54,22 @@ const columns = [
 
 export default function Footer() {
   return (
-    <footer className="bg-navy text-white mt-20">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-14">
-        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-8 mb-12">
+    <footer className="bg-navy-dk text-white mt-16 lg:mt-24">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-14 pb-8">
+
+        {/* Links grid */}
+        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-8 mb-14">
           {columns.map((col) => (
             <div key={col.heading}>
-              <h4 className="text-xs font-semibold uppercase tracking-widest text-white/50 mb-3">
+              <h4 className="text-2xs font-semibold uppercase tracking-[0.12em] text-terra mb-4">
                 {col.heading}
               </h4>
-              <ul className="space-y-2">
+              <ul className="space-y-2.5">
                 {col.links.map((link) => (
                   <li key={link.href}>
                     <Link
                       href={link.href}
-                      className="text-sm text-white/70 hover:text-white transition-colors"
+                      className="text-[0.8125rem] text-white/55 hover:text-white transition-colors leading-snug"
                     >
                       {link.label}
                     </Link>
@@ -76,16 +80,18 @@ export default function Footer() {
           ))}
         </div>
 
-        <div className="border-t border-white/10 pt-8 flex flex-col sm:flex-row justify-between items-start gap-4">
+        {/* Bottom bar */}
+        <div className="border-t border-white/[0.08] pt-8 flex flex-col sm:flex-row justify-between items-start gap-5">
           <div>
-            <p className="font-serif text-white font-semibold text-lg mb-1">
-              livinginSpain<span className="text-terra">.</span>guide
-            </p>
-            <p className="text-white/50 text-xs max-w-sm">
+            <Link href="/" className="font-serif text-white font-semibold text-lg mb-2 block hover:text-cream transition-colors">
+              livingin<span className="text-terra">Spain</span>
+              <span className="text-white/40 font-sans font-normal text-sm">.guide</span>
+            </Link>
+            <p className="text-white/35 text-xs leading-relaxed max-w-sm">
               Independent guides for non-resident property owners in Spain. Not legal or tax advice — always verify with a qualified gestoría.
             </p>
           </div>
-          <p className="text-white/30 text-xs whitespace-nowrap">
+          <p className="text-white/20 text-xs whitespace-nowrap">
             © {new Date().getFullYear()} livinginSpain.guide
           </p>
         </div>

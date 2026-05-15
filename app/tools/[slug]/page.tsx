@@ -12,40 +12,27 @@ import type { Metadata } from 'next';
 
 const components = { Callout, SummaryBox, DataTable, CTABox, RelatedGuides, OfficialSources };
 
-interface Props {
-  params: { slug: string };
-}
-
 export async function generateStaticParams() {
   return getAllArticles('tools').map((a) => ({ slug: a.slug }));
 }
 
-export async function generateMetadata({ params }: Props): Promise<Metadata> {
+export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }): Promise<Metadata> {
   try {
-    const article = getArticle('tools', params.slug);
+    const { slug } = await params;
+    const article = getArticle('tools', slug);
     return { title: article.title, description: article.description };
-  } catch {
-    return {};
-  }
+  } catch { return {}; }
 }
 
-export default function ToolsPage({ params }: Props) {
+export default async function ToolsPage({ params }: { params: Promise<{ slug: string }> }) {
+  const { slug } = await params;
   let article;
-  try {
-    article = getArticle('tools', params.slug);
-  } catch {
-    notFound();
-  }
+  try { article = getArticle('tools', slug); } catch { notFound(); }
 
   return (
-    <ArticleLayout
-      title={article.title}
-      description={article.description}
-      category={article.category}
-      lastUpdated={article.lastUpdated}
-      readingTime={article.readingTime}
-      breadcrumb={[{ label: 'Tools', href: '/tools' }]}
-    >
+    <ArticleLayout title={article.title} description={article.description} category={article.category}
+      lastUpdated={article.lastUpdated} readingTime={article.readingTime}
+      breadcrumb={[{ label: 'Tools', href: '/tools' }]}>
       <MDXRemote source={article.content} components={components} />
     </ArticleLayout>
   );

@@ -15,46 +15,31 @@ const components = { Callout, SummaryBox, DataTable, CTABox, RelatedGuides, Offi
 
 export async function generateStaticParams() {
   return [
-    { slug: ['buying-process'] },
-    { slug: ['nota-simple'] },
-    { slug: ['cedula-habitabilidad'] },
-    { slug: ['management'] },
+    { slug: ['buying-process'] }, { slug: ['nota-simple'] },
+    { slug: ['cedula-habitabilidad'] }, { slug: ['management'] },
     { slug: ['tourist-rentals', 'etv-mallorca'] },
     { slug: ['tourist-rentals', 'vut-mainland'] },
     { slug: ['tourist-rentals', 'nra-registry'] },
   ];
 }
 
-interface Props {
-  params: { slug: string[] };
-}
-
-export async function generateMetadata({ params }: Props): Promise<Metadata> {
+export async function generateMetadata({ params }: { params: Promise<{ slug: string[] }> }): Promise<Metadata> {
   try {
-    const article = getNestedArticle('property', params.slug);
+    const { slug } = await params;
+    const article = getNestedArticle('property', slug);
     return { title: article.title, description: article.description };
-  } catch {
-    return {};
-  }
+  } catch { return {}; }
 }
 
-export default function PropertyArticlePage({ params }: Props) {
+export default async function PropertyArticlePage({ params }: { params: Promise<{ slug: string[] }> }) {
+  const { slug } = await params;
   let article;
-  try {
-    article = getNestedArticle('property', params.slug);
-  } catch {
-    notFound();
-  }
+  try { article = getNestedArticle('property', slug); } catch { notFound(); }
 
   return (
-    <ArticleLayout
-      title={article.title}
-      description={article.description}
-      category={article.category}
-      lastUpdated={article.lastUpdated}
-      readingTime={article.readingTime}
-      breadcrumb={[{ label: 'Property', href: '/property' }]}
-    >
+    <ArticleLayout title={article.title} description={article.description} category={article.category}
+      lastUpdated={article.lastUpdated} readingTime={article.readingTime}
+      breadcrumb={[{ label: 'Property', href: '/property' }]}>
       <MDXRemote source={article.content} components={components} />
       <SimplifyButton simple={article.simplifySimple} bullet={article.simplifyBullet} example={article.simplifyExample} />
     </ArticleLayout>

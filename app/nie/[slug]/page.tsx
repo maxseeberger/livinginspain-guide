@@ -13,40 +13,27 @@ import type { Metadata } from 'next';
 
 const components = { Callout, SummaryBox, DataTable, CTABox, RelatedGuides, OfficialSources };
 
-interface Props {
-  params: { slug: string };
-}
-
 export async function generateStaticParams() {
   return getAllArticles('nie').map((a) => ({ slug: a.slug }));
 }
 
-export async function generateMetadata({ params }: Props): Promise<Metadata> {
+export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }): Promise<Metadata> {
   try {
-    const article = getArticle('nie', params.slug);
+    const { slug } = await params;
+    const article = getArticle('nie', slug);
     return { title: article.title, description: article.description };
-  } catch {
-    return {};
-  }
+  } catch { return {}; }
 }
 
-export default function NIEArticlePage({ params }: Props) {
+export default async function NIEArticlePage({ params }: { params: Promise<{ slug: string }> }) {
+  const { slug } = await params;
   let article;
-  try {
-    article = getArticle('nie', params.slug);
-  } catch {
-    notFound();
-  }
+  try { article = getArticle('nie', slug); } catch { notFound(); }
 
   return (
-    <ArticleLayout
-      title={article.title}
-      description={article.description}
-      category={article.category}
-      lastUpdated={article.lastUpdated}
-      readingTime={article.readingTime}
-      breadcrumb={[{ label: 'NIE & Residency', href: '/nie' }]}
-    >
+    <ArticleLayout title={article.title} description={article.description} category={article.category}
+      lastUpdated={article.lastUpdated} readingTime={article.readingTime}
+      breadcrumb={[{ label: 'NIE & Residency', href: '/nie' }]}>
       <MDXRemote source={article.content} components={components} />
       <SimplifyButton simple={article.simplifySimple} bullet={article.simplifyBullet} example={article.simplifyExample} />
     </ArticleLayout>

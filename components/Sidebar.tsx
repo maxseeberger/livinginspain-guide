@@ -1,50 +1,57 @@
 export default function Sidebar() {
   return (
-    <aside className="space-y-6">
-      {/* Upcoming deadlines */}
-      <div className="bg-cream border border-border rounded-lg px-5 py-5">
-        <h3 className="font-serif text-navy font-semibold text-base mb-3">Key deadlines</h3>
-        <ul className="space-y-2.5 text-sm">
-          <li className="flex justify-between gap-2">
-            <span className="text-text">Modelo 210</span>
-            <span className="font-semibold text-terra whitespace-nowrap">31 Dec 2026</span>
-          </li>
-          <li className="flex justify-between gap-2">
-            <span className="text-text">IBI</span>
-            <span className="font-semibold text-navy whitespace-nowrap">Varies by municipality</span>
-          </li>
-          <li className="flex justify-between gap-2">
-            <span className="text-text">Wealth tax (Patrimonio)</span>
-            <span className="font-semibold text-navy whitespace-nowrap">30 Jun 2026</span>
-          </li>
-        </ul>
-        <a href="/tools/tax-calendar" className="mt-4 inline-block text-terra text-xs font-semibold hover:text-terra-lt">
-          Full tax calendar →
-        </a>
-      </div>
-
+    <aside className="space-y-5">
       {/* Partner box */}
-      <div className="bg-navy rounded-lg px-5 py-5 text-white">
-        <p className="text-xs font-semibold uppercase tracking-widest text-white/60 mb-1">Recommended partner</p>
-        <h3 className="font-serif text-white text-base font-semibold mb-2">Global Consulting Mallorca</h3>
-        <p className="text-white/75 text-sm leading-relaxed mb-4">
-          Gestoría for non-residents: Modelo 210, NIE, tax filings. Used personally by the site owner.
+      <div className="bg-navy rounded-xl px-5 py-6 text-white">
+        <p className="text-2xs font-semibold uppercase tracking-widest text-terra mb-1.5">Recommended gestoría</p>
+        <h3 className="font-serif text-white text-lg font-semibold mb-2 leading-snug">Global Consulting Mallorca</h3>
+        <p className="text-white/65 text-sm leading-relaxed mb-5">
+          Modelo 210, NIE applications, tax filings. Used personally by the site owner.
         </p>
         <a
           href="/professionals/global-consulting-mallorca"
-          className="inline-block bg-terra hover:bg-terra-lt text-white text-sm font-semibold px-4 py-2 rounded-md transition-colors"
+          className="block text-center bg-terra hover:bg-terra-lt text-white text-sm font-semibold px-4 py-2.5 rounded-lg transition-colors"
         >
-          Get help →
+          Get expert help →
         </a>
       </div>
 
-      {/* Quick Modelo 210 estimate */}
-      <div className="border border-border rounded-lg px-5 py-5">
+      {/* Key deadlines */}
+      <div className="bg-white border border-border rounded-xl px-5 py-5">
+        <h3 className="font-serif text-navy font-semibold text-base mb-4">Key deadlines 2026</h3>
+        <ul className="space-y-3">
+          {[
+            { label: 'Modelo 210', date: '31 Dec 2026', urgent: true },
+            { label: 'Wealth tax (Patrimonio)', date: '30 Jun 2026', urgent: false },
+            { label: 'IBI', date: 'Varies by municipality', urgent: false },
+          ].map(({ label, date, urgent }) => (
+            <li key={label} className="flex items-start justify-between gap-3">
+              <span className="text-text-md text-sm">{label}</span>
+              <span className={`text-xs font-semibold whitespace-nowrap mt-0.5 ${urgent ? 'text-terra' : 'text-navy'}`}>
+                {date}
+              </span>
+            </li>
+          ))}
+        </ul>
+        <div className="mt-4 pt-4 border-t border-border">
+          <a href="/tools/tax-calendar" className="text-terra text-xs font-semibold hover:text-terra-lt transition-colors flex items-center gap-1">
+            Full tax calendar
+            <svg className="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M9 5l7 7-7 7" />
+            </svg>
+          </a>
+        </div>
+      </div>
+
+      {/* Modelo 210 calculator */}
+      <div className="bg-terra-bg border border-terra/20 rounded-xl px-5 py-5">
         <h3 className="font-serif text-navy font-semibold text-base mb-1">Modelo 210 estimate</h3>
-        <p className="text-text-lt text-xs mb-3">Rough annual tax on your property&apos;s cadastral value.</p>
+        <p className="text-text-lt text-xs leading-relaxed mb-4">
+          Estimate your annual tax based on your property&apos;s cadastral value.
+        </p>
         <a
           href="/tools/modelo-210-calculator"
-          className="btn-primary text-sm w-full text-center block"
+          className="block text-center bg-terra hover:bg-terra-lt text-white text-sm font-semibold px-4 py-2.5 rounded-lg transition-colors"
         >
           Open calculator →
         </a>

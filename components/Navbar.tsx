@@ -1,12 +1,12 @@
 'use client';
 
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import Link from 'next/link';
 
 const navItems = [
   {
     label: 'Taxes',
-    href: '/taxes',
+    href: '/taxes/modelo-210',
     children: [
       { label: 'Modelo 210 (annual tax)', href: '/taxes/modelo-210' },
       { label: 'Modelo 030 (NIE activation)', href: '/taxes/modelo-030' },
@@ -21,7 +21,7 @@ const navItems = [
   },
   {
     label: 'NIE & Residency',
-    href: '/nie',
+    href: '/nie/how-to-apply',
     children: [
       { label: 'How to get a NIE', href: '/nie/how-to-apply' },
       { label: 'NIE vs TIE vs NIF', href: '/nie/nie-vs-tie-nif' },
@@ -34,7 +34,7 @@ const navItems = [
   },
   {
     label: 'Property',
-    href: '/property',
+    href: '/property/buying-process',
     children: [
       { label: 'Buying process', href: '/property/buying-process' },
       { label: 'Nota simple', href: '/property/nota-simple' },
@@ -46,7 +46,7 @@ const navItems = [
   },
   {
     label: 'Inheritance',
-    href: '/inheritance',
+    href: '/inheritance/balearics-100-exemption',
     children: [
       { label: 'Balearics 100% exemption', href: '/inheritance/balearics-100-exemption' },
       { label: 'Inheritance process', href: '/inheritance/process' },
@@ -71,18 +71,29 @@ const navItems = [
 export default function Navbar() {
   const [openMenu, setOpenMenu] = useState<string | null>(null);
   const [mobileOpen, setMobileOpen] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
+
+  useEffect(() => {
+    const handler = () => setScrolled(window.scrollY > 4);
+    window.addEventListener('scroll', handler, { passive: true });
+    return () => window.removeEventListener('scroll', handler);
+  }, []);
 
   return (
-    <header className="bg-navy sticky top-0 z-50 shadow-md">
+    <header className={`bg-white sticky top-0 z-50 transition-shadow duration-200 ${scrolled ? 'shadow-[0_1px_12px_rgba(27,58,92,0.1)]' : 'shadow-nav'}`}>
       <nav className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex items-center justify-between h-16">
+        <div className="flex items-center justify-between h-[60px]">
+
           {/* Logo */}
-          <Link href="/" className="font-serif text-white text-lg font-semibold tracking-tight hover:text-cream transition-colors">
-            livinginSpain<span className="text-terra">.</span>guide
+          <Link href="/" className="shrink-0 group">
+            <span className="font-serif text-navy text-[1.125rem] font-semibold tracking-tight group-hover:text-navy-dk transition-colors">
+              livingin<span className="text-terra">Spain</span>
+              <span className="text-text-lt font-sans font-normal text-sm">.guide</span>
+            </span>
           </Link>
 
           {/* Desktop nav */}
-          <div className="hidden lg:flex items-center gap-1">
+          <div className="hidden lg:flex items-center gap-0.5">
             {navItems.map((item) => (
               <div
                 key={item.label}
@@ -92,33 +103,47 @@ export default function Navbar() {
               >
                 <Link
                   href={item.href}
-                  className="px-3 py-2 text-white/85 hover:text-white text-sm font-medium rounded-md hover:bg-white/10 transition-colors flex items-center gap-1"
+                  className={`px-3.5 py-2 text-[0.875rem] font-medium rounded-md transition-colors flex items-center gap-1 ${
+                    openMenu === item.label
+                      ? 'text-navy bg-sand'
+                      : 'text-text-md hover:text-navy hover:bg-sand'
+                  }`}
                 >
                   {item.label}
                   {item.children && (
-                    <svg className="w-3.5 h-3.5 opacity-60" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+                    <svg
+                      className={`w-3 h-3 transition-transform duration-150 ${openMenu === item.label ? 'rotate-180 text-terra' : 'text-text-lt'}`}
+                      fill="none" stroke="currentColor" viewBox="0 0 24 24"
+                    >
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M19 9l-7 7-7-7" />
                     </svg>
                   )}
                 </Link>
+
                 {item.children && openMenu === item.label && (
-                  <div className="absolute top-full left-0 mt-1 w-56 bg-white rounded-lg shadow-xl border border-border py-2 z-50">
-                    {item.children.map((child) => (
-                      <Link
-                        key={child.href}
-                        href={child.href}
-                        className="block px-4 py-2 text-sm text-text hover:bg-cream hover:text-terra transition-colors"
-                      >
-                        {child.label}
-                      </Link>
-                    ))}
+                  <div className="dropdown-enter absolute top-full left-0 mt-1.5 w-60 bg-white rounded-xl shadow-[0_8px_30px_rgba(0,0,0,0.12)] border border-border-lt overflow-hidden z-50">
+                    <div className="py-1.5">
+                      {item.children.map((child) => (
+                        <Link
+                          key={child.href}
+                          href={child.href}
+                          className="block px-4 py-2 text-[0.8125rem] text-text-md hover:bg-sand hover:text-navy transition-colors"
+                        >
+                          {child.label}
+                        </Link>
+                      ))}
+                    </div>
                   </div>
                 )}
               </div>
             ))}
+          </div>
+
+          {/* Right side */}
+          <div className="hidden lg:flex items-center gap-3">
             <Link
               href="/professionals/global-consulting-mallorca"
-              className="ml-3 bg-terra hover:bg-terra-lt text-white text-sm font-semibold px-4 py-2 rounded-md transition-colors"
+              className="btn-primary"
             >
               Get expert help
             </Link>
@@ -126,16 +151,16 @@ export default function Navbar() {
 
           {/* Mobile toggle */}
           <button
-            className="lg:hidden text-white/80 hover:text-white p-2"
+            className="lg:hidden text-text-md hover:text-navy p-2 -mr-2 rounded-md hover:bg-sand transition-colors"
             onClick={() => setMobileOpen(!mobileOpen)}
             aria-label="Toggle menu"
           >
             {mobileOpen ? (
-              <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
               </svg>
             ) : (
-              <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
               </svg>
             )}
@@ -145,25 +170,27 @@ export default function Navbar() {
 
       {/* Mobile menu */}
       {mobileOpen && (
-        <div className="lg:hidden bg-navy border-t border-white/10 pb-4">
+        <div className="lg:hidden border-t border-border bg-white pb-6 max-h-[80vh] overflow-y-auto">
           {navItems.map((item) => (
-            <div key={item.label}>
-              <p className="px-6 pt-4 pb-1 text-xs font-semibold uppercase tracking-widest text-white/50">
+            <div key={item.label} className="px-4 pt-5">
+              <p className="text-2xs font-semibold uppercase tracking-widest text-terra mb-2">
                 {item.label}
               </p>
-              {item.children?.map((child) => (
-                <Link
-                  key={child.href}
-                  href={child.href}
-                  className="block px-6 py-2 text-sm text-white/80 hover:text-white hover:bg-white/5"
-                  onClick={() => setMobileOpen(false)}
-                >
-                  {child.label}
-                </Link>
-              ))}
+              <div className="space-y-0.5">
+                {item.children?.map((child) => (
+                  <Link
+                    key={child.href}
+                    href={child.href}
+                    className="block px-3 py-2 text-sm text-text-md hover:text-navy hover:bg-sand rounded-md transition-colors"
+                    onClick={() => setMobileOpen(false)}
+                  >
+                    {child.label}
+                  </Link>
+                ))}
+              </div>
             </div>
           ))}
-          <div className="px-6 pt-4">
+          <div className="px-4 pt-6">
             <Link
               href="/professionals/global-consulting-mallorca"
               className="btn-primary w-full text-center block"
