@@ -57,7 +57,7 @@ export default function PillarGrid() {
                 <h3 className={`font-display font-bold text-ink text-lg leading-snug mb-2 tracking-tight ${a.hover} transition-colors`}>
                   {p.title}
                 </h3>
-                <p className="text-text-lt text-sm leading-relaxed mb-4">{p.description}</p>
+                <p className="text-text-md text-sm leading-relaxed mb-4">{p.description}</p>
                 <span className={`text-xs font-medium flex items-center gap-1.5 ${a.num} group-hover:gap-2.5 transition-all`}>
                   Explore
                   <svg className="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">

@@ -19,7 +19,7 @@ export default function Sidebar() {
 
       {/* Deadlines */}
       <div className="bg-sand rounded-2xl p-6">
-        <p className="label mb-4">Key deadlines 2026</p>
+        <p className="font-mono text-[0.625rem] font-medium uppercase tracking-[0.18em] text-text-md mb-4">Key deadlines 2026</p>
         <div className="space-y-3">
           {[
             { label: 'Modelo 210', date: '31 Dec 2026', hot: true },
@@ -41,7 +41,7 @@ export default function Sidebar() {
 
       {/* Calculator */}
       <div className="border border-border rounded-2xl p-6">
-        <p className="label mb-3">Modelo 210 estimate</p>
+        <p className="font-mono text-[0.625rem] font-medium uppercase tracking-[0.18em] text-text-md mb-3">Modelo 210 estimate</p>
         <p className="text-text-lt text-xs leading-relaxed mb-4">
           Estimate your annual tax from your property&apos;s cadastral value.
         </p>

@@ -65,10 +65,10 @@ export default function HomepageHero() {
             {/* Right — stacked guide cards */}
             <div className="hidden lg:flex flex-col gap-0 self-end">
               {[
-                { label: 'Most read', title: 'Modelo 210', sub: 'Annual non-resident tax', href: '/taxes/modelo-210', bg: 'bg-navy' },
-                { label: 'Essential', title: 'Get your NIE', sub: 'Step-by-step application', href: '/nie/how-to-apply', bg: 'bg-terra' },
-                { label: 'Balearics', title: '100% Inheritance\nTax Exemption', sub: 'How it works in Mallorca', href: '/inheritance/balearics-100-exemption', bg: 'bg-[#1F5C35]' },
-              ].map((card, i) => (
+                { label: 'Annual tax', title: 'Modelo 210', sub: 'Required for every non-resident owner', href: '/taxes/modelo-210', bg: 'bg-navy' },
+                { label: 'Mallorca rentals', title: 'ETV Tourist\nRental Licence', sub: 'Fines up to €400,000 without one', href: '/property/tourist-rentals/etv-mallorca', bg: 'bg-terra' },
+                { label: 'Balearics', title: '100% Inheritance\nTax Exemption', sub: 'Your heirs may pay nothing', href: '/inheritance/balearics-100-exemption', bg: 'bg-[#1F5C35]' },
+              ].map((card) => (
                 <Link
                   key={card.href}
                   href={card.href}
@@ -80,7 +80,7 @@ export default function HomepageHero() {
                       <h3 className="font-display font-bold text-white text-xl leading-snug whitespace-pre-line">
                         {card.title}
                       </h3>
-                      <p className="text-white/50 text-xs mt-1">{card.sub}</p>
+                      <p className="text-white/65 text-xs mt-1">{card.sub}</p>
                     </div>
                     <svg className="w-5 h-5 text-white/40 group-hover:text-white group-hover:translate-x-0.5 transition-all shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M9 5l7 7-7 7" />

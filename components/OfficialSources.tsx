@@ -11,7 +11,7 @@ export default function OfficialSources({ sources }: OfficialSourcesProps) {
   if (!sources?.length) return null;
   return (
     <div className="not-prose bg-sand border border-border rounded-2xl px-6 py-5 my-8">
-      <p className="font-mono text-[0.625rem] uppercase tracking-[0.2em] text-text-lt mb-4">Official sources</p>
+      <p className="font-mono text-[0.625rem] uppercase tracking-[0.2em] text-text-md mb-4">Official sources</p>
       <ul className="space-y-2.5">
         {sources.map((s, i) => (
           <li key={i}>

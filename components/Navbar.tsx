@@ -123,7 +123,7 @@ export default function Navbar() {
                 </Link>
 
                 {item.children && openMenu === item.label && (
-                  <div className="dropdown-enter absolute top-[calc(100%+4px)] left-0 w-58 bg-white rounded-2xl shadow-[0_8px_40px_rgba(0,0,0,0.14)] border border-border-lt overflow-hidden z-50">
+                  <div className="dropdown-enter absolute top-[calc(100%+4px)] left-0 w-60 bg-white rounded-2xl shadow-[0_8px_40px_rgba(0,0,0,0.14)] border border-border-lt overflow-hidden z-50">
                     <div className="p-1.5">
                       {item.children.map((child) => (
                         <Link

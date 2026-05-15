@@ -2,43 +2,46 @@ import Link from 'next/link';
 
 const cards = [
   {
-    label: 'Tax',
+    label: 'Tax — annual filing',
     title: 'Modelo 210',
-    sub: 'Annual Non-Resident Property Tax',
-    description: 'Every non-resident must file this annually. Here\'s exactly what it is, what you pay, and how to file online.',
+    sub: 'Non-Resident Property Tax',
+    description: 'Every non-resident owner must file this annually. Here\'s exactly what it is, what you pay, and how to file online yourself.',
     href: '/taxes/modelo-210',
     readingTime: 12,
     bg: 'bg-navy-dk',
     textColor: 'text-white',
-    subColor: 'text-white/50',
+    subColor: 'text-white/60',
     labelColor: 'text-terra',
     arrowColor: 'text-terra',
+    badge: 'Deadline: 31 Dec',
   },
   {
-    label: 'NIE',
-    title: 'Get Your NIE',
-    sub: 'Complete Application Guide',
-    description: 'The NIE is the foundation of everything in Spain — taxes, property, banking.',
-    href: '/nie/how-to-apply',
-    readingTime: 10,
-    bg: 'bg-terra',
-    textColor: 'text-white',
-    subColor: 'text-white/60',
-    labelColor: 'text-white/60',
-    arrowColor: 'text-white',
-  },
-  {
-    label: 'Inheritance',
-    title: 'Balearics 100% Exemption',
-    sub: 'Zero Inheritance Tax',
-    description: 'If your property is in Mallorca, Ibiza or Menorca, your heirs may pay zero inheritance tax.',
+    label: 'Inheritance — Balearics',
+    title: '100% Inheritance Tax Exemption',
+    sub: 'Potentially €0 for your heirs',
+    description: 'If your property is in Mallorca, Ibiza or Menorca, your heirs may pay zero inheritance tax. Here\'s exactly who qualifies.',
     href: '/inheritance/balearics-100-exemption',
     readingTime: 8,
+    bg: 'bg-[#1F5C35]',
+    textColor: 'text-white',
+    subColor: 'text-white/60',
+    labelColor: 'text-[#7ECBA1]',
+    arrowColor: 'text-white',
+    badge: null,
+  },
+  {
+    label: 'Rentals — Mallorca',
+    title: 'Tourist Rental Licence (ETV)',
+    sub: 'Fines up to €400,000 without one',
+    description: 'Mallorca has the strictest tourist rental rules in Spain. No new licences are being issued in most zones. Here\'s the full picture.',
+    href: '/property/tourist-rentals/etv-mallorca',
+    readingTime: 10,
     bg: 'bg-cream',
     textColor: 'text-ink',
-    subColor: 'text-text-lt',
+    subColor: 'text-text-md',
     labelColor: 'text-terra',
     arrowColor: 'text-navy',
+    badge: null,
   },
 ];
 
@@ -64,16 +67,23 @@ export default function FeaturedArticles() {
         </div>
 
         {/* Cards */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-1">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-1.5">
           {cards.map((c) => (
             <Link
               key={c.href}
               href={c.href}
-              className={`group block ${c.bg} p-8 rounded-2xl hover:scale-[1.01] transition-all duration-200`}
+              className={`group block ${c.bg} p-8 rounded-2xl hover:scale-[1.015] hover:shadow-card-hover transition-all duration-200`}
             >
-              <div className="flex flex-col h-full min-h-[260px]">
-                <p className={`font-mono text-[0.625rem] uppercase tracking-[0.2em] mb-4 ${c.labelColor}`}>{c.label}</p>
-                <h3 className={`font-display font-bold text-3xl leading-[1.0] tracking-tight mb-2 ${c.textColor}`}>
+              <div className="flex flex-col h-full min-h-[280px]">
+                <div className="flex items-start justify-between gap-2 mb-5">
+                  <p className={`font-mono text-[0.625rem] uppercase tracking-[0.18em] ${c.labelColor}`}>{c.label}</p>
+                  {c.badge && (
+                    <span className="bg-terra text-white text-[0.5625rem] font-semibold uppercase tracking-wide px-2 py-0.5 rounded-full shrink-0">
+                      {c.badge}
+                    </span>
+                  )}
+                </div>
+                <h3 className={`font-display font-bold text-3xl leading-[1.05] tracking-tight mb-2 ${c.textColor}`}>
                   {c.title}
                 </h3>
                 <p className={`text-sm font-medium mb-4 ${c.subColor}`}>{c.sub}</p>
