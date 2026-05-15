@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Source+Sans+3:wght@300;400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap');
 
 @tailwind base;
 @tailwind components;
@@ -10,8 +10,8 @@
   }
 
   html {
-    font-family: 'Source Sans 3', system-ui, sans-serif;
-    color: #1A1A1A;
+    font-family: 'Inter', system-ui, sans-serif;
+    color: #0D0D0D;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     scroll-behavior: smooth;
@@ -22,49 +22,60 @@
   }
 
   h1, h2, h3, h4, h5, h6 {
-    font-family: 'Playfair Display', Georgia, serif;
-    color: #1B3A5C;
-    letter-spacing: -0.01em;
+    font-family: 'Syne', system-ui, sans-serif;
+    letter-spacing: -0.02em;
+    color: #0D0D0D;
   }
 
   ::selection {
-    background-color: #FDF1EB;
-    color: #C4622D;
+    background-color: #C4622D;
+    color: #FFFFFF;
   }
 }
 
 @layer components {
   .btn-primary {
-    @apply bg-terra text-white font-semibold px-5 py-2.5 rounded-lg hover:bg-terra-lt transition-all duration-150 inline-block text-sm tracking-wide shadow-sm hover:shadow-md;
+    @apply bg-terra text-white font-semibold px-6 py-3 rounded-full hover:bg-terra-lt transition-all duration-200 inline-flex items-center gap-2 text-sm tracking-wide;
   }
 
   .btn-outline {
-    @apply border border-terra text-terra font-semibold px-5 py-2.5 rounded-lg hover:bg-terra hover:text-white transition-all duration-150 inline-block text-sm tracking-wide;
+    @apply border border-white/40 text-white font-semibold px-6 py-3 rounded-full hover:bg-white hover:text-navy transition-all duration-200 inline-flex items-center gap-2 text-sm tracking-wide;
   }
 
-  .btn-ghost {
-    @apply border border-border text-text-md font-medium px-5 py-2.5 rounded-lg hover:border-navy hover:text-navy transition-all duration-150 inline-block text-sm;
+  .btn-dark {
+    @apply bg-navy text-white font-semibold px-6 py-3 rounded-full hover:bg-navy-dk transition-all duration-200 inline-flex items-center gap-2 text-sm tracking-wide;
   }
 
-  .tag {
-    @apply text-2xs font-semibold uppercase tracking-widest text-terra;
+  .label {
+    @apply font-mono text-[0.625rem] font-medium uppercase tracking-[0.2em] text-text-lt;
   }
 
-  .tag-navy {
-    @apply text-2xs font-semibold uppercase tracking-widest text-navy;
+  .label-terra {
+    @apply font-mono text-[0.625rem] font-medium uppercase tracking-[0.2em] text-terra;
   }
 
-  .divider {
-    @apply border-t border-border my-8;
+  .label-white {
+    @apply font-mono text-[0.625rem] font-medium uppercase tracking-[0.2em] text-white/50;
+  }
+
+  .display-xl {
+    @apply font-display text-5xl sm:text-6xl lg:text-7xl font-extrabold leading-[0.95] tracking-tight;
+  }
+
+  .display-lg {
+    @apply font-display text-4xl sm:text-5xl font-extrabold leading-[1.0] tracking-tight;
+  }
+
+  .display-md {
+    @apply font-display text-3xl sm:text-4xl font-bold leading-[1.05] tracking-tight;
   }
 }
 
-/* Smooth dropdown animation */
-@keyframes fadeInDown {
-  from { opacity: 0; transform: translateY(-6px); }
+/* Dropdown fade */
+@keyframes fadeDown {
+  from { opacity: 0; transform: translateY(-8px); }
   to   { opacity: 1; transform: translateY(0); }
 }
-
 .dropdown-enter {
-  animation: fadeInDown 0.15s ease-out forwards;
+  animation: fadeDown 0.18s cubic-bezier(0.16, 1, 0.3, 1) forwards;
 }

@@ -1,0 +1,80 @@
+---
+title: "Modelo 210 Tax Estimate Calculator"
+description: "Estimate your annual Modelo 210 non-resident property tax based on your property's cadastral value. For indicative purposes only."
+category: "Tools"
+slug: "modelo-210-calculator"
+lastUpdated: "2026-05-15"
+readingTime: 3
+simplifySimple: |
+  This calculator gives you a rough idea of your annual Modelo 210 tax bill. Enter your property's cadastral value (valor catastral) from your IBI bill and your ownership percentage. The result is an estimate — your actual bill depends on whether the cadastral value was revised in the last 10 years and which rate your municipality uses.
+simplifyBullet: |
+  • **Cadastral value:** Found on your IBI receipt from the ayuntamiento (town hall).
+  • **Deemed rental income:** 1.1% of cadastral value (if revised after 1994) or 2% (if older revision).
+  • **Tax rate:** 19% for EU/EEA residents; 24% for non-EU residents.
+  • **Result:** This is an annual estimate only — consult a gestoría for the exact figure.
+simplifyExample: |
+  German owner, Mallorca villa, cadastral value €150,000, revised 2010.
+  Deemed income: €150,000 × 1.1% = €1,650.
+  Tax at 19%: €1,650 × 19% = €313.50 per year.
+  If owned 50/50 with spouse: €156.75 each per year.
+---
+
+<SummaryBox>
+Modelo 210 is filed annually by every non-resident property owner in Spain. Tax is calculated on a "deemed rental income" derived from your property's cadastral value — not actual rent. This calculator gives an indicative estimate.
+</SummaryBox>
+
+<Callout variant="info" title="This is an estimate only">
+The calculator below is for planning purposes. Your actual Modelo 210 may differ depending on your municipality's cadastral revision date, your ownership share, and any partial-year ownership. Always have a gestoría verify your final filing.
+</Callout>
+
+## How the tax is calculated
+
+Modelo 210 for a property used personally (not rented out) works as follows:
+
+1. **Deemed rental income** = cadastral value × 1.1% (or 2% if cadastral value has not been revised since 1994)
+2. **Tax** = deemed rental income × tax rate (19% for EU/EEA residents, 24% for others)
+
+## What is the cadastral value?
+
+The **valor catastral** is an administrative value assigned to your property by the Spanish authorities. It is always lower than market value — typically 30–70% of it. You can find it on your IBI (local property tax) bill.
+
+## Quick reference table
+
+<DataTable
+  headers={["Cadastral Value", "Deemed Income (1.1%)", "Tax at 19% (EU)", "Tax at 24% (non-EU)"]}
+  rows={[
+    ["€50,000", "€550", "€104.50/year", "€132/year"],
+    ["€100,000", "€1,100", "€209/year", "€264/year"],
+    ["€150,000", "€1,650", "€313.50/year", "€396/year"],
+    ["€200,000", "€2,200", "€418/year", "€528/year"],
+    ["€300,000", "€3,300", "€627/year", "€792/year"],
+    ["€500,000", "€5,500", "€1,045/year", "€1,320/year"],
+  ]}
+/>
+
+*Assumes 1.1% rate (cadastral value revised after 1994) and 100% ownership. Divide by number of co-owners for your share.*
+
+## Key deadlines
+
+Modelo 210 must be filed and paid by **31 December** of the year following the tax year. For the 2025 tax year, the deadline is 31 December 2026.
+
+<CTABox
+  title="Want the exact figure?"
+  body="Global Consulting Mallorca will calculate your precise Modelo 210 liability, file the form online, and arrange payment — all for a fixed fee. Used personally by the site owner."
+  buttonText="Get help from Global Consulting Mallorca →"
+/>
+
+<OfficialSources
+  sources={[
+    { label: "AEAT — Modelo 210 official form and guidance", href: "https://www.agenciatributaria.es/AEAT.internet/Inicio/Ayuda/Modelos__Procedimientos_y_Servicios/Ayuda_Modelo_210/Ayuda_Modelo_210.shtml" },
+    { label: "AEAT — Non-resident income tax (IRNR) overview", href: "https://www.agenciatributaria.es/AEAT.internet/en_gb/Inicio/Particulares/Quiero_saber_cómo/Como_tributo_en_Espana/No_residentes_IRNR_/No_residentes_IRNR_.shtml" }
+  ]}
+/>
+
+<RelatedGuides
+  guides={[
+    { title: "Modelo 210: Complete Filing Guide", href: "/taxes/modelo-210" },
+    { title: "IBI: Local Property Tax in Spain", href: "/taxes/ibi" },
+    { title: "Tax Calendar: All Spanish Property Deadlines", href: "/tools/tax-calendar" },
+  ]}
+/>

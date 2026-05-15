@@ -54,22 +54,46 @@ const columns = [
 
 export default function Footer() {
   return (
-    <footer className="bg-navy-dk text-white mt-16 lg:mt-24">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-14 pb-8">
+    <footer className="bg-navy-dk text-white">
+      <div className="max-w-screen-xl mx-auto px-5 sm:px-8 pt-16 pb-8">
 
-        {/* Links grid */}
-        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-8 mb-14">
+        {/* Top: logo + tagline */}
+        <div className="flex flex-col sm:flex-row sm:items-start justify-between gap-8 pb-12 border-b border-white/10">
+          <div>
+            <Link href="/" className="inline-flex items-center gap-2 group mb-3">
+              <div className="w-8 h-8 bg-navy rounded-lg flex items-center justify-center shrink-0">
+                <span className="text-terra font-display font-extrabold text-sm leading-none">ES</span>
+              </div>
+              <span className="font-display font-bold text-white text-base tracking-tight group-hover:text-white/80 transition-colors">
+                livingin<span className="text-terra">Spain</span>.guide
+              </span>
+            </Link>
+            <p className="text-white/35 text-xs leading-relaxed max-w-xs">
+              Independent guides for non-resident property owners in Spain. Not legal or tax advice — always verify with a qualified gestoría.
+            </p>
+          </div>
+          <Link
+            href="/professionals/global-consulting-mallorca"
+            className="btn-primary self-start"
+          >
+            Get expert help
+            <svg className="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+            </svg>
+          </Link>
+        </div>
+
+        {/* Links */}
+        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-8 py-12 border-b border-white/10">
           {columns.map((col) => (
             <div key={col.heading}>
-              <h4 className="text-2xs font-semibold uppercase tracking-[0.12em] text-terra mb-4">
-                {col.heading}
-              </h4>
+              <h4 className="label-terra mb-4">{col.heading}</h4>
               <ul className="space-y-2.5">
                 {col.links.map((link) => (
                   <li key={link.href}>
                     <Link
                       href={link.href}
-                      className="text-[0.8125rem] text-white/55 hover:text-white transition-colors leading-snug"
+                      className="text-[0.8125rem] text-white/45 hover:text-white transition-colors"
                     >
                       {link.label}
                     </Link>
@@ -80,21 +104,12 @@ export default function Footer() {
           ))}
         </div>
 
-        {/* Bottom bar */}
-        <div className="border-t border-white/[0.08] pt-8 flex flex-col sm:flex-row justify-between items-start gap-5">
-          <div>
-            <Link href="/" className="font-serif text-white font-semibold text-lg mb-2 block hover:text-cream transition-colors">
-              livingin<span className="text-terra">Spain</span>
-              <span className="text-white/40 font-sans font-normal text-sm">.guide</span>
-            </Link>
-            <p className="text-white/35 text-xs leading-relaxed max-w-sm">
-              Independent guides for non-resident property owners in Spain. Not legal or tax advice — always verify with a qualified gestoría.
-            </p>
-          </div>
-          <p className="text-white/20 text-xs whitespace-nowrap">
-            © {new Date().getFullYear()} livinginSpain.guide
-          </p>
+        {/* Bottom */}
+        <div className="pt-8 flex justify-between items-center gap-4">
+          <p className="text-white/20 text-xs">© {new Date().getFullYear()} livinginSpain.guide</p>
+          <p className="text-white/20 text-xs">Independent. Not legal or tax advice.</p>
         </div>
+
       </div>
     </footer>
   );

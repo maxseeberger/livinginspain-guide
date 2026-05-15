@@ -29,53 +29,37 @@ export default function ArticleLayout({
   return (
     <>
       {/* Breadcrumb */}
-      <div className="bg-white border-b border-border-lt">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-3">
-          <nav className="flex items-center gap-1.5 text-[0.8125rem] text-text-lt flex-wrap">
-            <Link href="/" className="hover:text-terra transition-colors">Home</Link>
+      <div className="border-b border-border-lt bg-white">
+        <div className="max-w-screen-xl mx-auto px-5 sm:px-8 py-3">
+          <nav className="flex items-center gap-1.5 text-xs text-text-lt flex-wrap">
+            <Link href="/" className="hover:text-ink transition-colors">Home</Link>
             {breadcrumb.map((crumb) => (
               <span key={crumb.href} className="flex items-center gap-1.5">
-                <svg className="w-3 h-3 text-border shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-                </svg>
-                <Link href={crumb.href} className="hover:text-terra transition-colors">{crumb.label}</Link>
+                <span className="text-border">/</span>
+                <Link href={crumb.href} className="hover:text-ink transition-colors">{crumb.label}</Link>
               </span>
             ))}
             <span className="flex items-center gap-1.5">
-              <svg className="w-3 h-3 text-border shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-              </svg>
-              <span className="text-text-lt truncate max-w-[200px] sm:max-w-none">{title}</span>
+              <span className="text-border">/</span>
+              <span className="text-text-lt truncate max-w-[200px] sm:max-w-sm">{title}</span>
             </span>
           </nav>
         </div>
       </div>
 
       {/* Article header */}
-      <div className="bg-white border-b border-border-lt">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10 lg:py-12">
+      <div className="bg-navy-dk">
+        <div className="max-w-screen-xl mx-auto px-5 sm:px-8 py-12 lg:py-16">
           <div className="max-w-3xl">
-            <span className="inline-block text-2xs font-semibold uppercase tracking-widest text-terra mb-4">
-              {category}
-            </span>
-            <h1 className="font-serif text-navy text-3xl sm:text-[2.25rem] lg:text-[2.5rem] font-bold leading-[1.15] mb-4 tracking-tight">
+            <p className="label-terra mb-5">{category}</p>
+            <h1 className="font-display font-extrabold text-white text-4xl sm:text-5xl lg:text-[3.25rem] leading-[1.0] tracking-tight mb-5">
               {title}
             </h1>
-            <p className="text-text-md text-lg leading-relaxed mb-6 max-w-2xl">{description}</p>
-            <div className="flex items-center gap-3 text-xs text-text-lt">
-              <span className="flex items-center gap-1.5">
-                <svg className="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
-                </svg>
-                Updated {formattedDate}
-              </span>
-              <span className="text-border">·</span>
-              <span className="flex items-center gap-1.5">
-                <svg className="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
-                </svg>
-                {readingTime} min read
-              </span>
+            <p className="text-white/55 text-lg leading-relaxed mb-7 max-w-2xl">{description}</p>
+            <div className="flex items-center gap-4 text-xs text-white/35">
+              <span>Updated {formattedDate}</span>
+              <span>·</span>
+              <span>{readingTime} min read</span>
             </div>
           </div>
         </div>
@@ -83,8 +67,8 @@ export default function ArticleLayout({
 
       {/* Body */}
       <div className="bg-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10 lg:py-14">
-          <div className="grid grid-cols-1 lg:grid-cols-[1fr_300px] gap-10 lg:gap-14">
+        <div className="max-w-screen-xl mx-auto px-5 sm:px-8 py-12 lg:py-16">
+          <div className="grid grid-cols-1 lg:grid-cols-[1fr_300px] gap-12 lg:gap-16">
             <article className="prose prose-lg max-w-none font-sans">
               {children}
             </article>

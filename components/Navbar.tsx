@@ -74,26 +74,28 @@ export default function Navbar() {
   const [scrolled, setScrolled] = useState(false);
 
   useEffect(() => {
-    const handler = () => setScrolled(window.scrollY > 4);
+    const handler = () => setScrolled(window.scrollY > 8);
     window.addEventListener('scroll', handler, { passive: true });
     return () => window.removeEventListener('scroll', handler);
   }, []);
 
   return (
-    <header className={`bg-white sticky top-0 z-50 transition-shadow duration-200 ${scrolled ? 'shadow-[0_1px_12px_rgba(27,58,92,0.1)]' : 'shadow-nav'}`}>
-      <nav className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex items-center justify-between h-[60px]">
+    <header className={`bg-white sticky top-0 z-50 transition-all duration-200 ${scrolled ? 'shadow-[0_2px_20px_rgba(0,0,0,0.08)]' : 'border-b border-border-lt'}`}>
+      <nav className="max-w-screen-xl mx-auto px-5 sm:px-8">
+        <div className="flex items-center justify-between h-16">
 
           {/* Logo */}
-          <Link href="/" className="shrink-0 group">
-            <span className="font-serif text-navy text-[1.125rem] font-semibold tracking-tight group-hover:text-navy-dk transition-colors">
-              livingin<span className="text-terra">Spain</span>
-              <span className="text-text-lt font-sans font-normal text-sm">.guide</span>
+          <Link href="/" className="shrink-0 group flex items-center gap-2">
+            <div className="w-7 h-7 bg-navy rounded-md flex items-center justify-center shrink-0">
+              <span className="text-terra font-display font-extrabold text-xs leading-none">ES</span>
+            </div>
+            <span className="font-display font-bold text-ink text-[0.9375rem] tracking-tight group-hover:text-navy transition-colors">
+              livingin<span className="text-terra">Spain</span>.guide
             </span>
           </Link>
 
           {/* Desktop nav */}
-          <div className="hidden lg:flex items-center gap-0.5">
+          <div className="hidden lg:flex items-center gap-0">
             {navItems.map((item) => (
               <div
                 key={item.label}
@@ -103,10 +105,10 @@ export default function Navbar() {
               >
                 <Link
                   href={item.href}
-                  className={`px-3.5 py-2 text-[0.875rem] font-medium rounded-md transition-colors flex items-center gap-1 ${
+                  className={`px-3.5 py-2.5 text-sm font-medium rounded-lg transition-all flex items-center gap-1.5 ${
                     openMenu === item.label
-                      ? 'text-navy bg-sand'
-                      : 'text-text-md hover:text-navy hover:bg-sand'
+                      ? 'text-ink bg-sand'
+                      : 'text-text-md hover:text-ink hover:bg-sand'
                   }`}
                 >
                   {item.label}
@@ -121,13 +123,13 @@ export default function Navbar() {
                 </Link>
 
                 {item.children && openMenu === item.label && (
-                  <div className="dropdown-enter absolute top-full left-0 mt-1.5 w-60 bg-white rounded-xl shadow-[0_8px_30px_rgba(0,0,0,0.12)] border border-border-lt overflow-hidden z-50">
-                    <div className="py-1.5">
+                  <div className="dropdown-enter absolute top-[calc(100%+4px)] left-0 w-58 bg-white rounded-2xl shadow-[0_8px_40px_rgba(0,0,0,0.14)] border border-border-lt overflow-hidden z-50">
+                    <div className="p-1.5">
                       {item.children.map((child) => (
                         <Link
                           key={child.href}
                           href={child.href}
-                          className="block px-4 py-2 text-[0.8125rem] text-text-md hover:bg-sand hover:text-navy transition-colors"
+                          className="block px-3.5 py-2 text-sm text-text-md hover:text-ink hover:bg-sand rounded-lg transition-colors"
                         >
                           {child.label}
                         </Link>
@@ -139,19 +141,22 @@ export default function Navbar() {
             ))}
           </div>
 
-          {/* Right side */}
-          <div className="hidden lg:flex items-center gap-3">
+          {/* CTA */}
+          <div className="hidden lg:flex items-center">
             <Link
               href="/professionals/global-consulting-mallorca"
               className="btn-primary"
             >
               Get expert help
+              <svg className="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+              </svg>
             </Link>
           </div>
 
           {/* Mobile toggle */}
           <button
-            className="lg:hidden text-text-md hover:text-navy p-2 -mr-2 rounded-md hover:bg-sand transition-colors"
+            className="lg:hidden text-text-md hover:text-ink p-2 rounded-lg hover:bg-sand transition-colors"
             onClick={() => setMobileOpen(!mobileOpen)}
             aria-label="Toggle menu"
           >
@@ -172,16 +177,14 @@ export default function Navbar() {
       {mobileOpen && (
         <div className="lg:hidden border-t border-border bg-white pb-6 max-h-[80vh] overflow-y-auto">
           {navItems.map((item) => (
-            <div key={item.label} className="px-4 pt-5">
-              <p className="text-2xs font-semibold uppercase tracking-widest text-terra mb-2">
-                {item.label}
-              </p>
+            <div key={item.label} className="px-5 pt-5">
+              <p className="label-terra mb-2">{item.label}</p>
               <div className="space-y-0.5">
                 {item.children?.map((child) => (
                   <Link
                     key={child.href}
                     href={child.href}
-                    className="block px-3 py-2 text-sm text-text-md hover:text-navy hover:bg-sand rounded-md transition-colors"
+                    className="block px-3 py-2 text-sm text-text-md hover:text-ink hover:bg-sand rounded-lg transition-colors"
                     onClick={() => setMobileOpen(false)}
                   >
                     {child.label}
@@ -190,10 +193,10 @@ export default function Navbar() {
               </div>
             </div>
           ))}
-          <div className="px-4 pt-6">
+          <div className="px-5 pt-6">
             <Link
               href="/professionals/global-consulting-mallorca"
-              className="btn-primary w-full text-center block"
+              className="btn-primary w-full justify-center"
               onClick={() => setMobileOpen(false)}
             >
               Get expert help
