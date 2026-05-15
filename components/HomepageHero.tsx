@@ -78,8 +78,8 @@ export default function HomepageHero({ locale = 'en' }: HomepageHeroProps) {
 
               <p className="text-white/70 text-lg leading-relaxed mb-8 max-w-lg">
                 {de
-                  ? '59 praktische Ratgeber zu spanischen Steuern, NIE-Anträgen, Erbschaft, Ferienvermietung und Alltag — in verständlichem Deutsch.'
-                  : '59 practical guides on Spanish taxes, NIE applications, inheritance, tourist rentals, and daily life — in plain English.'}
+                  ? '63 praktische Ratgeber zu spanischen Steuern, NIE-Anträgen, Erbschaft, Ferienvermietung und Alltag — in verständlichem Deutsch.'
+                  : '63 practical guides on Spanish taxes, NIE applications, inheritance, tourist rentals, and daily life — in plain English.'}
               </p>
 
               <div className="flex flex-wrap gap-3">
@@ -97,8 +97,8 @@ export default function HomepageHero({ locale = 'en' }: HomepageHeroProps) {
               {/* Stats */}
               <div className="flex gap-8 mt-12 pt-8 border-t border-white/10">
                 {[
-                  { n: '59', unit: de ? 'Ratgeber' : 'guides' },
-                  { n: '9', unit: de ? 'Themen' : 'topics' },
+                  { n: '63', unit: de ? 'Ratgeber' : 'guides' },
+                  { n: '10', unit: de ? 'Themen' : 'topics' },
                   { n: '2026', unit: de ? 'aktualisiert' : 'updated' },
                 ].map(({ n, unit }) => (
                   <div key={unit}>

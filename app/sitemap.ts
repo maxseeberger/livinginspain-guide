@@ -2,7 +2,7 @@ import { MetadataRoute } from 'next';
 import { getAllArticlesDeep } from '@/lib/mdx';
 
 const base = 'https://livinginspain.guide';
-const sections = ['taxes', 'nie', 'property', 'inheritance', 'banking', 'daily-life', 'by-nationality', 'mallorca', 'tools'];
+const sections = ['taxes', 'nie', 'property', 'inheritance', 'banking', 'daily-life', 'by-nationality', 'mallorca', 'tools', 'maritime'];
 const now = new Date();
 
 export default function sitemap(): MetadataRoute.Sitemap {
