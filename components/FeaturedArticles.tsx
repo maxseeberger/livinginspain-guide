@@ -1,51 +1,109 @@
 import Link from 'next/link';
+import type { Locale } from '@/lib/mdx';
 
-const cards = [
-  {
-    label: 'Tax — annual filing',
-    title: 'Modelo 210',
-    sub: 'Non-Resident Property Tax',
-    description: 'Every non-resident owner must file this annually. Here\'s exactly what it is, what you pay, and how to file online yourself.',
-    href: '/taxes/modelo-210',
-    readingTime: 12,
-    bg: 'bg-navy-dk',
-    textColor: 'text-white',
-    subColor: 'text-white/60',
-    labelColor: 'text-terra',
-    arrowColor: 'text-terra',
-    badge: 'Deadline: 31 Dec',
-  },
-  {
-    label: 'Inheritance — Balearics',
-    title: '100% Inheritance Tax Exemption',
-    sub: 'Potentially €0 for your heirs',
-    description: 'If your property is in Mallorca, Ibiza or Menorca, your heirs may pay zero inheritance tax. Here\'s exactly who qualifies.',
-    href: '/inheritance/balearics-100-exemption',
-    readingTime: 8,
-    bg: 'bg-[#1F5C35]',
-    textColor: 'text-white',
-    subColor: 'text-white/60',
-    labelColor: 'text-[#7ECBA1]',
-    arrowColor: 'text-white',
-    badge: null,
-  },
-  {
-    label: 'Rentals — Mallorca',
-    title: 'Tourist Rental Licence (ETV)',
-    sub: 'Fines up to €400,000 without one',
-    description: 'Mallorca has the strictest tourist rental rules in Spain. No new licences are being issued in most zones. Here\'s the full picture.',
-    href: '/property/tourist-rentals/etv-mallorca',
-    readingTime: 10,
-    bg: 'bg-cream',
-    textColor: 'text-ink',
-    subColor: 'text-text-md',
-    labelColor: 'text-terra',
-    arrowColor: 'text-navy',
-    badge: null,
-  },
-];
+function getCards(locale: Locale) {
+  const p = locale === 'de' ? '/de' : '';
+  if (locale === 'de') {
+    return [
+      {
+        label: 'Steuer — Jahreserklärung',
+        title: 'Modelo 210',
+        sub: 'Grundsteuer für Nicht-Ansässige',
+        description: 'Jeder nicht-ansässige Eigentümer muss diese Steuer jährlich erklären. Hier erfahren Sie genau, was sie ist, was Sie zahlen und wie Sie online selbst einreichen.',
+        href: `${p}/taxes/modelo-210`,
+        readingTime: 12,
+        bg: 'bg-navy-dk',
+        textColor: 'text-white',
+        subColor: 'text-white/60',
+        labelColor: 'text-terra',
+        arrowColor: 'text-terra',
+        badge: 'Frist: 31. Dez.',
+      },
+      {
+        label: 'Erbschaft — Balearen',
+        title: '100% Erbschaftsteuerbefreiung',
+        sub: 'Potenziell €0 für Ihre Erben',
+        description: 'Liegt Ihre Immobilie auf Mallorca, Ibiza oder Menorca, zahlen Ihre Erben möglicherweise null Erbschaftsteuer. Hier erfahren Sie genau, wer sich qualifiziert.',
+        href: `${p}/inheritance/balearics-100-exemption`,
+        readingTime: 8,
+        bg: 'bg-[#1F5C35]',
+        textColor: 'text-white',
+        subColor: 'text-white/60',
+        labelColor: 'text-[#7ECBA1]',
+        arrowColor: 'text-white',
+        badge: null,
+      },
+      {
+        label: 'Vermietung — Mallorca',
+        title: 'Ferienvermietlizenz (ETV)',
+        sub: 'Bußgelder bis zu 400.000 € ohne Lizenz',
+        description: 'Mallorca hat die strengsten Ferienvermietungsregeln in Spanien. In den meisten Gebieten werden keine neuen Lizenzen mehr vergeben. Hier das vollständige Bild.',
+        href: `${p}/property/tourist-rentals/etv-mallorca`,
+        readingTime: 10,
+        bg: 'bg-cream',
+        textColor: 'text-ink',
+        subColor: 'text-text-md',
+        labelColor: 'text-terra',
+        arrowColor: 'text-navy',
+        badge: null,
+      },
+    ];
+  }
+  return [
+    {
+      label: 'Tax — annual filing',
+      title: 'Modelo 210',
+      sub: 'Non-Resident Property Tax',
+      description: "Every non-resident owner must file this annually. Here's exactly what it is, what you pay, and how to file online yourself.",
+      href: `${p}/taxes/modelo-210`,
+      readingTime: 12,
+      bg: 'bg-navy-dk',
+      textColor: 'text-white',
+      subColor: 'text-white/60',
+      labelColor: 'text-terra',
+      arrowColor: 'text-terra',
+      badge: 'Deadline: 31 Dec',
+    },
+    {
+      label: 'Inheritance — Balearics',
+      title: '100% Inheritance Tax Exemption',
+      sub: 'Potentially €0 for your heirs',
+      description: "If your property is in Mallorca, Ibiza or Menorca, your heirs may pay zero inheritance tax. Here's exactly who qualifies.",
+      href: `${p}/inheritance/balearics-100-exemption`,
+      readingTime: 8,
+      bg: 'bg-[#1F5C35]',
+      textColor: 'text-white',
+      subColor: 'text-white/60',
+      labelColor: 'text-[#7ECBA1]',
+      arrowColor: 'text-white',
+      badge: null,
+    },
+    {
+      label: 'Rentals — Mallorca',
+      title: 'Tourist Rental Licence (ETV)',
+      sub: 'Fines up to €400,000 without one',
+      description: "Mallorca has the strictest tourist rental rules in Spain. No new licences are being issued in most zones. Here's the full picture.",
+      href: `${p}/property/tourist-rentals/etv-mallorca`,
+      readingTime: 10,
+      bg: 'bg-cream',
+      textColor: 'text-ink',
+      subColor: 'text-text-md',
+      labelColor: 'text-terra',
+      arrowColor: 'text-navy',
+      badge: null,
+    },
+  ];
+}
 
-export default function FeaturedArticles() {
+interface FeaturedArticlesProps {
+  locale?: Locale;
+}
+
+export default function FeaturedArticles({ locale = 'en' }: FeaturedArticlesProps) {
+  const de = locale === 'de';
+  const cards = getCards(locale);
+  const p = de ? '/de' : '';
+
   return (
     <section className="py-20 bg-sand">
       <div className="max-w-screen-xl mx-auto px-5 sm:px-8">
@@ -53,13 +111,13 @@ export default function FeaturedArticles() {
         {/* Section header */}
         <div className="flex items-end justify-between gap-4 mb-10">
           <div>
-            <p className="label mb-3">Start here</p>
+            <p className="label mb-3">{de ? 'Hier beginnen' : 'Start here'}</p>
             <h2 className="font-display font-bold text-ink text-4xl sm:text-5xl tracking-tight leading-[1.0]">
-              Three guides every<br className="hidden sm:block" /> owner must read.
+              {de ? <>Drei Ratgeber, die jeder<br className="hidden sm:block" /> Eigentümer lesen muss.</> : <>Three guides every<br className="hidden sm:block" /> owner must read.</>}
             </h2>
           </div>
-          <Link href="/taxes/modelo-210" className="hidden sm:inline-flex items-center gap-2 text-sm font-medium text-text-md hover:text-ink transition-colors group shrink-0">
-            All guides
+          <Link href={`${p}/taxes/modelo-210`} className="hidden sm:inline-flex items-center gap-2 text-sm font-medium text-text-md hover:text-ink transition-colors group shrink-0">
+            {de ? 'Alle Ratgeber' : 'All guides'}
             <svg className="w-4 h-4 group-hover:translate-x-0.5 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
             </svg>
@@ -89,7 +147,7 @@ export default function FeaturedArticles() {
                 <p className={`text-sm font-medium mb-4 ${c.subColor}`}>{c.sub}</p>
                 <p className={`text-sm leading-relaxed flex-1 ${c.subColor}`}>{c.description}</p>
                 <div className={`flex items-center gap-2 mt-6 text-sm font-semibold ${c.arrowColor} group-hover:gap-3 transition-all`}>
-                  Read guide
+                  {de ? 'Ratgeber lesen' : 'Read guide'}
                   <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
                   </svg>

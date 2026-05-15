@@ -1,5 +1,6 @@
 import Link from 'next/link';
 import Sidebar from '@/components/Sidebar';
+import type { Locale } from '@/lib/mdx';
 
 interface ArticleLayoutProps {
   title: string;
@@ -9,6 +10,7 @@ interface ArticleLayoutProps {
   readingTime: number;
   breadcrumb: { label: string; href: string }[];
   children: React.ReactNode;
+  locale?: Locale;
 }
 
 export default function ArticleLayout({
@@ -19,12 +21,16 @@ export default function ArticleLayout({
   readingTime,
   breadcrumb,
   children,
+  locale = 'en',
 }: ArticleLayoutProps) {
-  const formattedDate = new Date(lastUpdated).toLocaleDateString('en-GB', {
+  const de = locale === 'de';
+  const formattedDate = new Date(lastUpdated).toLocaleDateString(de ? 'de-DE' : 'en-GB', {
     day: 'numeric',
     month: 'long',
     year: 'numeric',
   });
+  const homeHref = de ? '/de' : '/';
+  const homeLabel = de ? 'Startseite' : 'Home';
 
   return (
     <>
@@ -32,7 +38,7 @@ export default function ArticleLayout({
       <div className="border-b border-border-lt bg-white">
         <div className="max-w-screen-xl mx-auto px-5 sm:px-8 py-3">
           <nav className="flex items-center gap-1.5 text-xs text-text-lt flex-wrap">
-            <Link href="/" className="hover:text-ink transition-colors">Home</Link>
+            <Link href={homeHref} className="hover:text-ink transition-colors">{homeLabel}</Link>
             {breadcrumb.map((crumb) => (
               <span key={crumb.href} className="flex items-center gap-1.5">
                 <span className="text-border">/</span>
@@ -57,9 +63,9 @@ export default function ArticleLayout({
             </h1>
             <p className="text-white/55 text-lg leading-relaxed mb-7 max-w-2xl">{description}</p>
             <div className="flex items-center gap-4 text-xs text-white/60">
-              <span>Updated {formattedDate}</span>
+              <span>{de ? 'Aktualisiert' : 'Updated'} {formattedDate}</span>
               <span>·</span>
-              <span>{readingTime} min read</span>
+              <span>{readingTime} {de ? 'Min. Lesezeit' : 'min read'}</span>
             </div>
           </div>
         </div>
@@ -72,7 +78,7 @@ export default function ArticleLayout({
             <article className="prose prose-lg max-w-none font-sans">
               {children}
             </article>
-            <Sidebar />
+            <Sidebar locale={locale} />
           </div>
         </div>
       </div>

@@ -1,0 +1,80 @@
+---
+title: "Modelo-210-Steuerrechner"
+description: "Schätzen Sie Ihre jährliche Modelo-210-Nicht-Resident-Grundsteuer anhand des Katasterwertes Ihrer Immobilie. Nur zur Orientierung."
+category: "Werkzeuge"
+slug: "modelo-210-calculator"
+lastUpdated: "2026-05-15"
+readingTime: 3
+simplifySimple: |
+  Dieser Rechner gibt Ihnen eine grobe Vorstellung Ihrer jährlichen Modelo-210-Steuerrechnung. Geben Sie den Katasterwert Ihrer Immobilie (valor catastral) aus Ihrer IBI-Rechnung und Ihren Eigentumsanteil ein. Das Ergebnis ist eine Schätzung — Ihre tatsächliche Rechnung hängt davon ab, ob der Katasterwert in den letzten 10 Jahren revidiert wurde und welchen Satz Ihre Gemeinde verwendet.
+simplifyBullet: |
+  • **Katasterwert:** Auf Ihrer IBI-Quittung vom Ayuntamiento (Rathaus) zu finden.
+  • **Fiktives Mieteinkommen:** 1,1 % des Katasterwertes (wenn nach 1994 revidiert) oder 2 % (bei älterer Revision).
+  • **Steuersatz:** 19 % für EU/EWR-Residenten; 24 % für Nicht-EU-Residenten.
+  • **Ergebnis:** Dies ist nur eine Jahresschätzung — konsultieren Sie eine gestoría für den genauen Betrag.
+simplifyExample: |
+  Deutscher Eigentümer, Mallorca-Villa, Katasterwert €150.000, revidiert 2010.
+  Fiktives Einkommen: €150.000 × 1,1 % = €1.650.
+  Steuer zu 19 %: €1.650 × 19 % = €313,50 pro Jahr.
+  Bei hälftigem Miteigentum mit Ehepartner: €156,75 pro Person pro Jahr.
+---
+
+<SummaryBox>
+Modelo 210 wird jährlich von jedem Nicht-Resident-Immobilieneigentümer in Spanien eingereicht. Die Steuer wird auf ein „fiktives Mieteinkommen" berechnet, das sich aus dem Katasterwert Ihrer Immobilie ableitet — nicht aus einer tatsächlichen Miete. Dieser Rechner gibt eine indikative Schätzung.
+</SummaryBox>
+
+<Callout variant="info" title="Dies ist nur eine Schätzung">
+Der nachstehende Rechner dient Planungszwecken. Ihr tatsächliches Modelo 210 kann je nach Revisionsstand des Katasterwertes Ihrer Gemeinde, Ihrem Eigentumsanteil und einer eventuellen anteiligen Eigentümerschaft abweichen. Lassen Sie Ihre endgültige Anmeldung stets von einer gestoría prüfen.
+</Callout>
+
+## Wie die Steuer berechnet wird
+
+Modelo 210 für eine persönlich genutzte (nicht vermietete) Immobilie funktioniert wie folgt:
+
+1. **Fiktives Mieteinkommen** = Katasterwert × 1,1 % (oder 2 %, wenn der Katasterwert seit 1994 nicht revidiert wurde)
+2. **Steuer** = Fiktives Mieteinkommen × Steuersatz (19 % für EU/EWR-Residenten, 24 % für alle anderen)
+
+## Was ist der Katasterwert?
+
+Der **valor catastral** ist ein Verwaltungswert, der Ihrer Immobilie von den spanischen Behörden zugewiesen wird. Er ist immer niedriger als der Marktwert — in der Regel 30–70 % davon. Sie finden ihn auf Ihrer IBI-Rechnung (lokale Grundsteuer).
+
+## Schnellreferenztabelle
+
+<DataTable
+  headers={["Katasterwert", "Fiktives Einkommen (1,1 %)", "Steuer zu 19 % (EU)", "Steuer zu 24 % (Nicht-EU)"]}
+  rows={[
+    ["€50.000", "€550", "€104,50/Jahr", "€132/Jahr"],
+    ["€100.000", "€1.100", "€209/Jahr", "€264/Jahr"],
+    ["€150.000", "€1.650", "€313,50/Jahr", "€396/Jahr"],
+    ["€200.000", "€2.200", "€418/Jahr", "€528/Jahr"],
+    ["€300.000", "€3.300", "€627/Jahr", "€792/Jahr"],
+    ["€500.000", "€5.500", "€1.045/Jahr", "€1.320/Jahr"],
+  ]}
+/>
+
+*Geht von einem 1,1 %-Satz aus (Katasterwert nach 1994 revidiert) und 100 % Eigentum. Durch Anzahl der Miteigentümer teilen für Ihren Anteil.*
+
+## Wichtige Fristen
+
+Modelo 210 muss bis zum **31. Dezember** des auf das Steuerjahr folgenden Jahres eingereicht und bezahlt werden. Für das Steuerjahr 2025 ist die Frist der 31. Dezember 2026.
+
+<CTABox
+  title="Möchten Sie den genauen Betrag wissen?"
+  body="Eine gestoría berechnet Ihre genaue Modelo-210-Verbindlichkeit, reicht das Formular online ein und arrangiert die Zahlung — alles zu einer Pauschalgebühr."
+  buttonText="Gestoría-Hilfe anfragen →"
+/>
+
+<OfficialSources
+  sources={[
+    { label: "AEAT — Offizielles Modelo-210-Formular und Anleitung", href: "https://www.agenciatributaria.es/AEAT.internet/Inicio/Ayuda/Modelos__Procedimientos_y_Servicios/Ayuda_Modelo_210/Ayuda_Modelo_210.shtml" },
+    { label: "AEAT — Nicht-Resident-Einkommensteuer (IRNR) Überblick", href: "https://www.agenciatributaria.es/AEAT.internet/en_gb/Inicio/Particulares/Quiero_saber_cómo/Como_tributo_en_Espana/No_residentes_IRNR_/No_residentes_IRNR_.shtml" }
+  ]}
+/>
+
+<RelatedGuides
+  guides={[
+    { title: "Modelo 210: Vollständiger Einreichungsleitfaden", href: "/de/taxes/modelo-210" },
+    { title: "IBI: Lokale Grundsteuer in Spanien", href: "/de/taxes/ibi" },
+    { title: "Steuerkalender: Alle spanischen Immobilienfristen", href: "/de/tools/tax-calendar" },
+  ]}
+/>
