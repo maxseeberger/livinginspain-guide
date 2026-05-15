@@ -1,4 +1,7 @@
+'use client';
+
 import Link from 'next/link';
+import { usePathname } from 'next/navigation';
 import type { Locale } from '@/lib/mdx';
 
 function getColumns(locale: Locale) {
@@ -113,7 +116,9 @@ interface FooterProps {
   locale?: Locale;
 }
 
-export default function Footer({ locale = 'en' }: FooterProps) {
+export default function Footer({ locale: localeProp }: FooterProps) {
+  const pathname = usePathname();
+  const locale: Locale = localeProp ?? (pathname.startsWith('/de') ? 'de' : 'en');
   const columns = getColumns(locale);
   const homeHref = locale === 'de' ? '/de' : '/';
   const calendarHref = locale === 'de' ? '/de/tools/tax-calendar' : '/tools/tax-calendar';

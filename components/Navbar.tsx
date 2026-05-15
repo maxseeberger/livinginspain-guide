@@ -151,9 +151,9 @@ export default function Navbar({ locale = 'en' }: NavbarProps) {
 
   const isGerman = pathname.startsWith('/de');
   const otherLangHref = isGerman ? pathname.slice(3) || '/' : `/de${pathname}`;
-  const navItems = getNavItems(locale);
-  const ctaLabel = locale === 'de' ? 'Steuerkalender' : 'Tax calendar';
-  const ctaHref = locale === 'de' ? '/de/tools/tax-calendar' : '/tools/tax-calendar';
+  const navItems = getNavItems(isGerman ? 'de' : 'en');
+  const ctaLabel = isGerman ? 'Steuerkalender' : 'Tax calendar';
+  const ctaHref = isGerman ? '/de/tools/tax-calendar' : '/tools/tax-calendar';
 
   useEffect(() => {
     const handler = () => setScrolled(window.scrollY > 8);

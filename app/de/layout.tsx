@@ -1,7 +1,4 @@
 import type { Metadata } from 'next';
-import '../globals.css';
-import Navbar from '@/components/Navbar';
-import Footer from '@/components/Footer';
 
 export const metadata: Metadata = {
   title: {
@@ -19,13 +16,5 @@ export const metadata: Metadata = {
 };
 
 export default function DeLayout({ children }: { children: React.ReactNode }) {
-  return (
-    <html lang="de">
-      <body className="min-h-screen flex flex-col font-sans text-text bg-white">
-        <Navbar locale="de" />
-        <main className="flex-1">{children}</main>
-        <Footer locale="de" />
-      </body>
-    </html>
-  );
+  return <>{children}</>;
 }
