@@ -87,7 +87,7 @@ export default function Navbar() {
           {/* Logo */}
           <Link href="/" className="shrink-0 group flex items-center gap-2">
             <div className="w-7 h-7 bg-navy rounded-md flex items-center justify-center shrink-0">
-              <span className="text-terra font-display font-extrabold text-xs leading-none">ES</span>
+              <span className="text-terra font-display font-bold text-xs leading-none">ES</span>
             </div>
             <span className="font-display font-bold text-ink text-[0.9375rem] tracking-tight group-hover:text-navy transition-colors">
               livingin<span className="text-terra">Spain</span>.guide

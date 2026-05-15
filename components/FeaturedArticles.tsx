@@ -51,7 +51,7 @@ export default function FeaturedArticles() {
         <div className="flex items-end justify-between gap-4 mb-10">
           <div>
             <p className="label mb-3">Start here</p>
-            <h2 className="font-display font-extrabold text-ink text-4xl sm:text-5xl tracking-tight leading-[1.0]">
+            <h2 className="font-display font-bold text-ink text-4xl sm:text-5xl tracking-tight leading-[1.0]">
               Three guides every<br className="hidden sm:block" /> owner must read.
             </h2>
           </div>
@@ -73,7 +73,7 @@ export default function FeaturedArticles() {
             >
               <div className="flex flex-col h-full min-h-[260px]">
                 <p className={`font-mono text-[0.625rem] uppercase tracking-[0.2em] mb-4 ${c.labelColor}`}>{c.label}</p>
-                <h3 className={`font-display font-extrabold text-3xl leading-[1.0] tracking-tight mb-2 ${c.textColor}`}>
+                <h3 className={`font-display font-bold text-3xl leading-[1.0] tracking-tight mb-2 ${c.textColor}`}>
                   {c.title}
                 </h3>
                 <p className={`text-sm font-medium mb-4 ${c.subColor}`}>{c.sub}</p>

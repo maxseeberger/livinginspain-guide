@@ -52,11 +52,11 @@ export default function ArticleLayout({
         <div className="max-w-screen-xl mx-auto px-5 sm:px-8 py-12 lg:py-16">
           <div className="max-w-3xl">
             <p className="label-terra mb-5">{category}</p>
-            <h1 className="font-display font-extrabold text-white text-4xl sm:text-5xl lg:text-[3.25rem] leading-[1.0] tracking-tight mb-5">
+            <h1 className="font-display font-bold text-white text-4xl sm:text-5xl lg:text-[3.25rem] leading-[1.0] tracking-tight mb-5">
               {title}
             </h1>
             <p className="text-white/55 text-lg leading-relaxed mb-7 max-w-2xl">{description}</p>
-            <div className="flex items-center gap-4 text-xs text-white/35">
+            <div className="flex items-center gap-4 text-xs text-white/60">
               <span>Updated {formattedDate}</span>
               <span>·</span>
               <span>{readingTime} min read</span>

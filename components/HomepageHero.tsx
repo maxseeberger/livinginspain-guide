@@ -26,12 +26,12 @@ export default function HomepageHero() {
             <div className="pb-16 lg:pb-20">
               <p className="label-white mb-6">For non-resident property owners in Spain</p>
 
-              <h1 className="font-display font-extrabold text-white leading-[0.95] tracking-tighter text-[clamp(2.75rem,6vw,5.5rem)] mb-8">
+              <h1 className="font-display font-bold text-white leading-[0.95] tracking-tighter text-[clamp(2.75rem,6vw,5.5rem)] mb-8">
                 Own property<br className="hidden sm:block" /> in Spain.<br />
                 <span className="text-terra">Know what<br className="hidden sm:block" /> it means.</span>
               </h1>
 
-              <p className="text-white/55 text-lg leading-relaxed mb-8 max-w-lg">
+              <p className="text-white/70 text-lg leading-relaxed mb-8 max-w-lg">
                 61 practical guides on Spanish taxes, NIE applications, inheritance, tourist rentals, and daily life — in plain English.
               </p>
 
@@ -42,7 +42,7 @@ export default function HomepageHero() {
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
                   </svg>
                 </Link>
-                <Link href="/nie/how-to-apply" className="btn-outline">
+                <Link href="/nie/how-to-apply" className="btn-outline-white">
                   Get your NIE
                 </Link>
               </div>
@@ -55,7 +55,7 @@ export default function HomepageHero() {
                   { n: '2026', unit: 'updated' },
                 ].map(({ n, unit }) => (
                   <div key={unit}>
-                    <div className="font-display font-extrabold text-white text-3xl leading-none tracking-tight">{n}</div>
+                    <div className="font-display font-bold text-white text-3xl leading-none tracking-tight">{n}</div>
                     <div className="label-white mt-1.5">{unit}</div>
                   </div>
                 ))}

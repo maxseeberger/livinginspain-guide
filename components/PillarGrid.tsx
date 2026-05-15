@@ -26,7 +26,7 @@ export default function PillarGrid() {
         <div className="flex items-end justify-between gap-4 mb-10">
           <div>
             <p className="label mb-3">61 guides</p>
-            <h2 className="font-display font-extrabold text-ink text-4xl sm:text-5xl tracking-tight leading-[1.0]">
+            <h2 className="font-display font-bold text-ink text-4xl sm:text-5xl tracking-tight leading-[1.0]">
               Browse by topic.
             </h2>
           </div>
@@ -50,7 +50,7 @@ export default function PillarGrid() {
               >
                 <div className="flex items-start justify-between mb-4">
                   <div className={`w-5 h-1 rounded-full ${a.bar}`} />
-                  <span className={`font-display font-extrabold text-2xl leading-none ${a.num} opacity-25 group-hover:opacity-100 transition-opacity`}>
+                  <span className={`font-display font-bold text-2xl leading-none ${a.num} opacity-25 group-hover:opacity-100 transition-opacity`}>
                     {p.count}
                   </span>
                 </div>

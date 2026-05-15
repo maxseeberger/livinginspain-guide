@@ -62,7 +62,7 @@ export default function Footer() {
           <div>
             <Link href="/" className="inline-flex items-center gap-2 group mb-3">
               <div className="w-8 h-8 bg-navy rounded-lg flex items-center justify-center shrink-0">
-                <span className="text-terra font-display font-extrabold text-sm leading-none">ES</span>
+                <span className="text-terra font-display font-bold text-sm leading-none">ES</span>
               </div>
               <span className="font-display font-bold text-white text-base tracking-tight group-hover:text-white/80 transition-colors">
                 livingin<span className="text-terra">Spain</span>.guide
@@ -93,7 +93,7 @@ export default function Footer() {
                   <li key={link.href}>
                     <Link
                       href={link.href}
-                      className="text-[0.8125rem] text-white/45 hover:text-white transition-colors"
+                      className="text-[0.8125rem] text-white/55 hover:text-white transition-colors"
                     >
                       {link.label}
                     </Link>
@@ -106,8 +106,8 @@ export default function Footer() {
 
         {/* Bottom */}
         <div className="pt-8 flex justify-between items-center gap-4">
-          <p className="text-white/20 text-xs">© {new Date().getFullYear()} livinginSpain.guide</p>
-          <p className="text-white/20 text-xs">Independent. Not legal or tax advice.</p>
+          <p className="text-white/35 text-xs">© {new Date().getFullYear()} livinginSpain.guide</p>
+          <p className="text-white/35 text-xs">Independent. Not legal or tax advice.</p>
         </div>
 
       </div>
