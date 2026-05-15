@@ -1,0 +1,36 @@
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Source+Sans+3:wght@300;400;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    font-family: 'Source Sans 3', system-ui, sans-serif;
+    color: #2D2D2D;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  body {
+    background-color: #FFFFFF;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'Playfair Display', Georgia, serif;
+    color: #1B3A5C;
+  }
+}
+
+@layer components {
+  .btn-primary {
+    @apply bg-terra text-white font-semibold px-5 py-2.5 rounded-md hover:bg-terra-lt transition-colors duration-150 inline-block;
+  }
+
+  .btn-outline {
+    @apply border-2 border-terra text-terra font-semibold px-5 py-2.5 rounded-md hover:bg-terra hover:text-white transition-colors duration-150 inline-block;
+  }
+
+  .tag {
+    @apply text-xs font-semibold uppercase tracking-wider text-terra;
+  }
+}
