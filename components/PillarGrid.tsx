@@ -14,7 +14,7 @@ function getPillars(locale: Locale) {
       { title: 'Nach Nationalität', description: 'Ratgeber für britische, deutsche, amerikanische, Schweizer Eigentümer.', href: `${p}/by-nationality`, count: 5, accent: 'navy' },
       { title: 'Mallorca', description: 'Wohngebiete, IBI nach Gemeinde, Rabattprogramme für Bewohner.', href: `${p}/mallorca`, count: 5, accent: 'terra' },
       { title: 'Maritime', description: 'Boot kaufen, Liegeplätze, Wartelisten für Marinas auf Mallorca.', href: `${p}/maritime`, count: 4, accent: 'navy' },
-      { title: 'Werkzeuge & Ressourcen', description: 'Steuerkalender, Glossar, Modelo 210 Rechner.', href: `${p}/tools`, count: 3, accent: 'green' },
+      { title: 'Werkzeuge & Ressourcen', description: 'Steuerkalender und Glossar spanischer Immobilien- und Steuerbegriffe.', href: `${p}/tools`, count: 2, accent: 'green' },
     ];
   }
   return [
@@ -27,7 +27,7 @@ function getPillars(locale: Locale) {
     { title: 'By Nationality', description: 'Guides for British, German, American, Swiss owners.', href: `${p}/by-nationality`, count: 5, accent: 'navy' },
     { title: 'Mallorca', description: 'Living areas, IBI by municipality, resident discounts.', href: `${p}/mallorca`, count: 5, accent: 'terra' },
     { title: 'Maritime', description: 'Buying a boat, mooring options, Balearic berth shortage and waitlists.', href: `${p}/maritime`, count: 4, accent: 'navy' },
-    { title: 'Tools & Resources', description: 'Tax calendar, glossary, Modelo 210 calculator.', href: `${p}/tools`, count: 3, accent: 'green' },
+    { title: 'Tools & Resources', description: 'Tax calendar and plain-English glossary of Spanish property terms.', href: `${p}/tools`, count: 2, accent: 'green' },
   ];
 }
 
@@ -53,7 +53,7 @@ export default function PillarGrid({ locale = 'en' }: PillarGridProps) {
         {/* Header */}
         <div className="flex items-end justify-between gap-4 mb-10">
           <div>
-            <p className="label mb-3">{de ? '63 Ratgeber' : '63 guides'}</p>
+            <p className="label mb-3">{de ? '62 Ratgeber' : '62 guides'}</p>
             <h2 className="font-display font-bold text-ink text-4xl sm:text-5xl tracking-tight leading-[1.0]">
               {de ? 'Nach Thema durchsuchen.' : 'Browse by topic.'}
             </h2>

@@ -2,7 +2,6 @@ import HomepageHero from '@/components/HomepageHero';
 import FeaturedArticles from '@/components/FeaturedArticles';
 import PillarGrid from '@/components/PillarGrid';
 import MarketSnapshot from '@/components/MarketSnapshot';
-import Newsletter from '@/components/Newsletter';
 import type { Metadata } from 'next';
 
 export const metadata: Metadata = {
@@ -18,7 +17,6 @@ export default function HomePage() {
       <FeaturedArticles />
       <PillarGrid />
       <MarketSnapshot />
-      <Newsletter />
     </>
   );
 }

@@ -54,7 +54,6 @@ function getColumns(locale: Locale) {
           { label: 'Glossar', href: `${p}/tools/glossary` },
           { label: 'Mallorca-Ratgeber', href: `${p}/mallorca` },
           { label: 'Nach Nationalität', href: `${p}/by-nationality` },
-          { label: 'Modelo 210 Rechner', href: `${p}/tools/modelo-210-calculator` },
         ],
       },
     ];
@@ -106,7 +105,6 @@ function getColumns(locale: Locale) {
         { label: 'Glossary', href: '/tools/glossary' },
         { label: 'Mallorca guides', href: '/mallorca' },
         { label: 'By nationality', href: '/by-nationality' },
-        { label: 'Modelo 210 calculator', href: '/tools/modelo-210-calculator' },
       ],
     },
   ];

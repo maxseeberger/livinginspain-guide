@@ -7,7 +7,6 @@ interface SidebarProps {
 export default function Sidebar({ locale = 'en' }: SidebarProps) {
   const de = locale === 'de';
   const calendarHref = de ? '/de/tools/tax-calendar' : '/tools/tax-calendar';
-  const calcHref = de ? '/de/tools/modelo-210-calculator' : '/tools/modelo-210-calculator';
 
   return (
     <aside className="space-y-4 lg:sticky lg:top-24 lg:self-start">
@@ -34,24 +33,6 @@ export default function Sidebar({ locale = 'en' }: SidebarProps) {
             {de ? 'Vollständiger Steuerkalender →' : 'Full tax calendar →'}
           </a>
         </div>
-      </div>
-
-      {/* Calculator */}
-      <div className="border border-border rounded-2xl p-6">
-        <p className="font-mono text-[0.625rem] font-medium uppercase tracking-[0.18em] text-text-md mb-3">
-          {de ? 'Modelo 210 Schätzung' : 'Modelo 210 estimate'}
-        </p>
-        <p className="text-text-lt text-xs leading-relaxed mb-4">
-          {de
-            ? 'Schätzen Sie Ihre Jahressteuer anhand des Katasterwertes Ihrer Immobilie.'
-            : "Estimate your annual tax from your property's cadastral value."}
-        </p>
-        <a
-          href={calcHref}
-          className="block text-center bg-navy hover:bg-navy-dk text-white text-sm font-semibold px-4 py-3 rounded-full transition-colors"
-        >
-          {de ? 'Rechner öffnen →' : 'Open calculator →'}
-        </a>
       </div>
 
     </aside>
