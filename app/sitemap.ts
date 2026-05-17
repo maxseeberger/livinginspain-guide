@@ -26,5 +26,13 @@ export default function sitemap(): MetadataRoute.Sitemap {
     }
   }
 
+  // Legal pages
+  entries.push(
+    { url: `${base}/legal/imprint`, lastModified: now, priority: 0.3 },
+    { url: `${base}/legal/privacy`, lastModified: now, priority: 0.3 },
+    { url: `${base}/de/legal/impressum`, lastModified: now, priority: 0.3 },
+    { url: `${base}/de/legal/datenschutz`, lastModified: now, priority: 0.3 },
+  );
+
   return entries;
 }

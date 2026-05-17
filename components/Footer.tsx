@@ -170,9 +170,22 @@ export default function Footer({ locale: localeProp }: FooterProps) {
         </div>
 
         {/* Bottom */}
-        <div className="pt-8 flex justify-between items-center gap-4">
+        <div className="pt-8 flex flex-wrap justify-between items-center gap-3">
           <p className="text-white/35 text-xs">© {new Date().getFullYear()} livinginSpain.guide</p>
-          <p className="text-white/35 text-xs">{legal}</p>
+          <div className="flex items-center gap-4 flex-wrap">
+            {locale === 'de' ? (
+              <>
+                <Link href="/de/legal/impressum" className="text-white/35 hover:text-white/70 text-xs transition-colors">Impressum</Link>
+                <Link href="/de/legal/datenschutz" className="text-white/35 hover:text-white/70 text-xs transition-colors">Datenschutz</Link>
+              </>
+            ) : (
+              <>
+                <Link href="/legal/imprint" className="text-white/35 hover:text-white/70 text-xs transition-colors">Legal notice</Link>
+                <Link href="/legal/privacy" className="text-white/35 hover:text-white/70 text-xs transition-colors">Privacy policy</Link>
+              </>
+            )}
+            <p className="text-white/35 text-xs">{legal}</p>
+          </div>
         </div>
 
       </div>
