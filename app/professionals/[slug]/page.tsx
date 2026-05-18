@@ -32,7 +32,7 @@ export default async function ProfessionalsPage({ params }: { params: Promise<{ 
   return (
     <ArticleLayout title={article.title} description={article.description} category={article.category}
       lastUpdated={article.lastUpdated} readingTime={article.readingTime}
-      breadcrumb={[{ label: 'Professionals', href: '/professionals' }]}>
+      breadcrumb={[{ label: 'Home', href: '/' }]}>
       <MDXRemote source={article.content} components={components} />
     </ArticleLayout>
   );
