@@ -7,7 +7,7 @@ export const metadata: Metadata = {
   },
   description:
     'Praktische deutschsprachige Ratgeber zu spanischen Steuern, NIE, Erbschaft, Ferienvermietung und Immobilieneigentum — für nicht-ansässige Eigentümer in Spanien.',
-  metadataBase: new URL('https://livinginspain.guide'),
+  metadataBase: new URL('https://living-in-spain.com'),
   openGraph: {
     siteName: 'livinginSpain.guide',
     locale: 'de_DE',

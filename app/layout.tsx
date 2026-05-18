@@ -10,7 +10,7 @@ export const metadata: Metadata = {
   },
   description:
     'Practical English-language guides on Spanish taxes, NIE, inheritance, tourist rentals, and property ownership — for non-resident owners in Spain.',
-  metadataBase: new URL('https://livinginspain.guide'),
+  metadataBase: new URL('https://living-in-spain.com'),
   openGraph: {
     siteName: 'livinginSpain.guide',
     locale: 'en_GB',

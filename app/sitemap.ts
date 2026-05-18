@@ -1,7 +1,7 @@
 import { MetadataRoute } from 'next';
 import { getAllArticlesDeep } from '@/lib/mdx';
 
-const base = 'https://livinginspain.guide';
+const base = 'https://living-in-spain.com';
 const sections = ['taxes', 'nie', 'property', 'inheritance', 'banking', 'daily-life', 'by-nationality', 'mallorca', 'tools', 'maritime'];
 const now = new Date();
 
