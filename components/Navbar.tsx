@@ -174,7 +174,7 @@ export default function Navbar({ locale = 'en' }: NavbarProps) {
               <span className="text-terra font-display font-bold text-xs leading-none">ES</span>
             </div>
             <span className="font-display font-bold text-ink text-[0.9375rem] tracking-tight group-hover:text-navy transition-colors">
-              livingin<span className="text-terra">Spain</span>.guide
+              living-in-<span className="text-terra">spain</span>.com
             </span>
           </Link>
 

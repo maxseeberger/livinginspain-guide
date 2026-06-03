@@ -6,8 +6,8 @@ import Footer from '@/components/Footer';
 
 export const metadata: Metadata = {
   title: {
-    default: 'livinginSpain.guide — Guides for Non-Resident Property Owners',
-    template: '%s | livinginSpain.guide',
+    default: 'Living in Spain — Guides for Non-Resident Property Owners',
+    template: '%s | living-in-spain.com',
   },
   description:
     'Practical English-language guides on Spanish taxes, NIE, inheritance, tourist rentals, and property ownership — for non-resident owners in Spain.',
@@ -16,7 +16,7 @@ export const metadata: Metadata = {
     canonical: 'https://www.living-in-spain.com',
   },
   openGraph: {
-    siteName: 'livinginSpain.guide',
+    siteName: 'Living in Spain',
     locale: 'en_GB',
     type: 'website',
     images: [

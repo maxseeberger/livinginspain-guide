@@ -5,7 +5,7 @@ import MarketSnapshot from '@/components/MarketSnapshot';
 import type { Metadata } from 'next';
 
 export const metadata: Metadata = {
-  title: 'livinginSpain.guide — Practical Guides for Non-Resident Property Owners in Spain',
+  title: 'Living in Spain — Practical Guides for Non-Resident Property Owners in Spain',
   description:
     'English-language guides on Modelo 210, NIE applications, inheritance, tourist rentals, and daily life for non-resident property owners in Spain and Mallorca.',
 };

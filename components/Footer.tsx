@@ -138,7 +138,7 @@ export default function Footer({ locale: localeProp }: FooterProps) {
                 <span className="text-terra font-display font-bold text-sm leading-none">ES</span>
               </div>
               <span className="font-display font-bold text-white text-base tracking-tight group-hover:text-white/80 transition-colors">
-                livingin<span className="text-terra">Spain</span>.guide
+                living-in-<span className="text-terra">spain</span>.com
               </span>
             </Link>
             <p className="text-white/35 text-xs leading-relaxed max-w-xs">{tagline}</p>
@@ -171,7 +171,7 @@ export default function Footer({ locale: localeProp }: FooterProps) {
 
         {/* Bottom */}
         <div className="pt-8 flex flex-wrap justify-between items-center gap-3">
-          <p className="text-white/35 text-xs">© {new Date().getFullYear()} livinginSpain.guide</p>
+          <p className="text-white/35 text-xs">© {new Date().getFullYear()} living-in-spain.com</p>
           <div className="flex items-center gap-4 flex-wrap">
             {locale === 'de' ? (
               <>
