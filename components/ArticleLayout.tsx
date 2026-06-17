@@ -1,5 +1,6 @@
 import Link from 'next/link';
 import Sidebar from '@/components/Sidebar';
+import AdSenseAd from '@/components/AdSenseAd';
 import type { Locale } from '@/lib/mdx';
 
 interface ArticleLayoutProps {
@@ -77,6 +78,8 @@ export default function ArticleLayout({
           <div className="grid grid-cols-1 lg:grid-cols-[1fr_300px] gap-12 lg:gap-16">
             <article className="prose prose-lg max-w-none font-sans">
               {children}
+              {/* End-of-article ad — activates automatically when ADSENSE_ENABLED = true */}
+              <AdSenseAd slot="endOfPage" format="horizontal" className="not-prose mt-8" />
             </article>
             <Sidebar locale={locale} />
           </div>

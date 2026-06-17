@@ -41,6 +41,8 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <Navbar />
         <main className="flex-1">{children}</main>
         <Footer />
+        {/* AdSense — uncomment once account is approved and update ca-pub ID */}
+        {/* <Script src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-XXXXXXXXXXXXXXXX" strategy="afterInteractive" crossOrigin="anonymous" /> */}
         <Script src="https://www.googletagmanager.com/gtag/js?id=G-456BD0MSHN" strategy="afterInteractive" />
         <Script id="google-analytics" strategy="afterInteractive">{`
           window.dataLayer = window.dataLayer || [];

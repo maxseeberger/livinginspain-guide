@@ -26,6 +26,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
     }
   }
 
+  // About pages
+  entries.push(
+    { url: `${base}/about`, lastModified: now, priority: 0.5 },
+    { url: `${base}/de/about`, lastModified: now, priority: 0.5 },
+  );
+
   // Legal pages
   entries.push(
     { url: `${base}/legal/imprint`, lastModified: now, priority: 0.3 },

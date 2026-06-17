@@ -1,4 +1,5 @@
 import type { Locale } from '@/lib/mdx';
+import AdSenseAd from '@/components/AdSenseAd';
 
 interface SidebarProps {
   locale?: Locale;
@@ -34,6 +35,9 @@ export default function Sidebar({ locale = 'en' }: SidebarProps) {
           </a>
         </div>
       </div>
+
+      {/* AdSense sidebar ad — activates automatically when ADSENSE_ENABLED = true */}
+      <AdSenseAd slot="sidebar" format="rectangle" />
 
     </aside>
   );
