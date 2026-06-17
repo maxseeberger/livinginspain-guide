@@ -2,8 +2,8 @@ import { getAllArticlesDeep } from '@/lib/mdx';
 import CategoryLayout from '@/components/CategoryLayout';
 
 export const metadata = {
-  title: 'Inheritance — Spain Guides for Non-Residents',
-  description: 'Balearics 100% exemption, Spanish wills, inheritance process by region, and how to handle a Spanish estate as a non-resident.',
+  title: 'Inheritance in Spain — Probate, Wills & Tax Guides for Non-Residents',
+  description: 'Complete guides to Spanish inheritance and probate for non-residents: inheritance tax by region, Balearics 100% exemption, Spanish wills, the probate process, certificate of succession, and deadlines.',
 };
 
 export default function InheritancePage() {
