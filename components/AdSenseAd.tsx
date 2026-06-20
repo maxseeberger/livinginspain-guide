@@ -6,8 +6,8 @@ import { useEffect } from 'react';
 // Set ADSENSE_ENABLED to true once your AdSense account is approved.
 // Replace PUBLISHER_ID with your ca-pub-XXXXXXXXXXXXXXXX value.
 // Replace the slot IDs below with the slot IDs from your AdSense dashboard.
-const ADSENSE_ENABLED = false;
-const PUBLISHER_ID = 'ca-pub-XXXXXXXXXXXXXXXX';
+const ADSENSE_ENABLED = false; // ← set to true once AdSense approves the site
+const PUBLISHER_ID = 'ca-pub-3580202702543018';
 
 export const AD_SLOTS = {
   inArticle: 'XXXXXXXXXX',   // In-article ad (after intro)
